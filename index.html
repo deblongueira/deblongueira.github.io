@@ -1,75 +1,143 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Deborah Longueira</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deborah Longueira · Analytics Engineer</title>
   <style>
-    body { font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 16px; color:#111; }
-    h1 { font-size: 2rem; margin-bottom: .25rem; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: .25rem; }
-    .sub { color:#555; margin-top: 0; }
-    .links a { margin-right: .75rem; }
-    img.avatar { width: 120px; height:120px; border-radius: 50%; object-fit: cover; float:right; margin: -10px 0 10px 20px; }
-    ul { padding-left: 1.2rem; }
-    @media (max-width:600px){ img.avatar{ float:none; display:block; margin:10px auto; } }
+    * { box-sizing: border-box; }
+    :root{
+      --teal:#197c8a;
+      --teal-2:#1d8e9f;
+      --bg:#f5f6f7;
+      --text:#222;
+      --muted:#5b6770;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
+    a{color:var(--teal);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrapper{display:grid;grid-template-columns: 1fr 340px; gap:32px; max-width:1200px; margin:36px auto; padding:0 20px;}
+    @media (max-width: 900px){
+      .wrapper{grid-template-columns:1fr}
+      .sidebar{order:-1}
+    }
+
+    .content{background:#fff;border-radius:12px;padding:32px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .section{margin-bottom:36px}
+    .section h2{display:flex;align-items:center;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#4a5560;margin:0 0 12px}
+    .section h2 .icon{margin-right:10px;}
+
+    .sidebar{background:linear-gradient(180deg,var(--teal),var(--teal-2));color:#fff;border-radius:12px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    .sidebar .headshot{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.5);display:block;margin:0 auto 16px}
+    .sidebar h1{font-size:1.8rem;line-height:1.1;margin:0;text-align:center}
+    .sidebar .role{opacity:.95;text-align:center;margin:8px 0 18px}
+
+    .sidebar .contact{margin-top:16px}
+    .sidebar .contact a{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;color:#fff}
+    .sidebar .contact a:hover{background:rgba(255,255,255,.12);text-decoration:none}
+    .sidebar .cvbtn{margin-top:10px;display:block;text-align:center;background:#fff;color:var(--teal);padding:10px 12px;border-radius:10px;font-weight:600}
+    .sidebar .cvbtn:hover{filter:brightness(.98); text-decoration:none}
+
+    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2)}
+    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+    .sidebar .edu-item{margin:0 0 12px}
+    .sidebar .edu-item .degree{font-weight:600}
+    .small{color:var(--muted);font-size:.95rem}
+
+    ul{margin:6px 0 0 20px}
+    li{margin-bottom:6px}
+    .job{margin-bottom:18px}
+    .job h3{margin:0 0 4px}
+    .job .meta{color:#6b7680;font-size:.95rem;margin-bottom:6px}
+    .badge{display:inline-block;border:1px solid #e4e7ea;border-radius:999px;padding:3px 8px;margin:3px 6px 0 0;font-size:.85rem;color:#47505a}
+    .note{background:#f7fafb;border:1px solid #e6eef2;border-radius:8px;padding:10px 12px}
+    .muted{color:#6b7680}
   </style>
 </head>
 <body>
-  <img class="avatar" src="me.jpg" alt="Profile photo">
-  <h1>Deborah Longueira</h1>
-  <p class="sub">Analytics Engineer | Data Analyst</p>
-  <p class="links">
-    <a href="mailto:longueiradeb@gmail.com">longueiradeb@gmail.com</a> |
-    <a href="tel:+13059925513">(305) 992-5513</a> |
-    <a href="https://www.linkedin.com/in/deblongueira">LinkedIn</a> |
-    <a href="DeborahLongueiraResume.pdf">Resume (PDF)</a>
-  </p>
+  <div class="wrapper">
+    <main class="content">
+      <section class="section">
+        <h2>ABOUT ME</h2>
+        <p>I’m an Analytics Engineer / Data Analyst experienced in building KPI-driven analytics, data models, and internal tools. I craft Power BI dashboards, model data in Snowflake and SQL, and build low-code apps and automations with Power Apps and Power Automate. I’m fluent in English and Spanish and enjoy translating business needs into reliable, maintainable data products.</p>
+        <div class="note small">Based in Miami, FL · Open to remote opportunities.</div>
+      </section>
 
-  <h2>About Me</h2>
-  <p>
-    Analytics Engineer and Data Analyst with experience in building dashboards, 
-    developing data solutions, and applying engineering and programming fundamentals 
-    to solve complex problems. Skilled in SQL, Python, Power BI, and cloud-based data systems. 
-    Fluent in English and Spanish.
-  </p>
+      <section class="section">
+        <h2>PROJECTS</h2>
+        <ul>
+          <li><strong>CPS Impact Dashboard</strong> — Unified education & health KPIs in Power BI for Community Partnership Schools.</li>
+          <li><strong>Air Exports Market Intelligence</strong> — Dashboards comparing Latin American exports to U.S. & global markets.</li>
+          <li><strong>Revenue Plan Forecasting</strong> — Revenue & yield planning dashboards with detailed drill-downs.</li>
+          <li><strong>Performance Scorecard App</strong> — Power Apps solution with weekly tracker and automated workflows.</li>
+        </ul>
+      </section>
 
-  <h2>Education</h2>
-  <ul>
-    <li><strong>Master of Business Design (MBDesign)</strong>, Specialization in Innovation, Technology and Design<br>
-    Universitat de Barcelona · Universitat Politècnica de Catalunya</li>
-    <li><strong>Bachelor of Science in Computer Science</strong>, Minor in Cognitive Science<br>
-    University of Florida</li>
-  </ul>
+      <section class="section">
+        <h2>EXPERIENCE</h2>
+        <div class="job">
+          <h3>Analytics Engineer · Children’s Home Society of Florida</h3>
+          <div class="meta">Remote · Sep 2024 – Present</div>
+          <ul>
+            <li>Designed & implemented the CPS Impact Dashboard in Power BI with FDOE + internal data.</li>
+            <li>Built optimized SQL views in Snowflake to power real-time reporting.</li>
+            <li>Developed Power Apps with scorecard & tracker for CPS schools.</li>
+            <li>Automated workflows with Power Automate across Teams and SharePoint.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Data Analyst · FedEx Express</h3>
+          <div class="meta">Miami, FL · Dec 2019 – Sep 2024</div>
+          <ul>
+            <li>Maintained revenue plan dashboards for forecasting & trend analysis.</li>
+            <li>Built air export market dashboards segmented by HS code.</li>
+            <li>Created value proposition dashboards for Mexico, Brazil, Chile.</li>
+            <li>Monitored cargo volumes and capacity utilization for strategy.</li>
+          </ul>
+        </div>
+        <div class="small muted">
+          <span class="badge">Power BI</span><span class="badge">Snowflake</span><span class="badge">SQL</span><span class="badge">Python</span><span class="badge">Power Apps</span><span class="badge">Power Automate</span>
+        </div>
+      </section>
 
-  <h2>Work Experience</h2>
-  <p><strong>Analytics Engineer – Children’s Home Society of Florida</strong> (Sep 2024 – Present, Remote)</p>
-  <ul>
-    <li>Designed and implemented the CPS Impact Dashboard in Power BI, integrating education and health KPIs.</li>
-    <li>Created SQL views in Snowflake for real-time KPI-driven reporting.</li>
-    <li>Developed Power Apps solutions for standardized data entry and monitoring.</li>
-    <li>Automated workflows using Power Automate to improve efficiency.</li>
-  </ul>
+      <section class="section">
+        <h2>SKILLS</h2>
+        <div>
+          <span class="badge">Python</span><span class="badge">SQL</span><span class="badge">R</span><span class="badge">DAX</span>
+          <span class="badge">Power BI</span><span class="badge">Tableau</span><span class="badge">Power Apps</span><span class="badge">Git/GitHub</span>
+          <span class="badge">Snowflake</span><span class="badge">MySQL</span><span class="badge">SQLite</span>
+          <span class="badge">Figma</span><span class="badge">Miro</span><span class="badge">Excel</span>
+        </div>
+      </section>
+    </main>
 
-  <p><strong>Data Analyst – FedEx Express</strong> (Dec 2019 – Sep 2024, Miami, FL)</p>
-  <ul>
-    <li>Built revenue and market dashboards to analyze yield, trends, and exports across Latin America.</li>
-    <li>Developed dashboards to support strategic planning and product development.</li>
-    <li>Analyzed pricing, transit times, and cargo volumes to optimize resources.</li>
-  </ul>
+    <aside class="sidebar">
+      <img class="headshot" src="me.jpg" alt="Deborah Longueira headshot">
+      <h1>Deborah<br>Longueira</h1>
+      <div class="role">Analytics Engineer</div>
 
-  <h2>Relevant Coursework</h2>
-  <p>
-    Natural Language Processing, Human-Computer Interaction, Data Structures, Algorithms, 
-    Computational Linear Algebra, Numerical Analysis, Computer Networks, and more.
-  </p>
+      <div class="contact">
+        <a href="mailto:longueiradeb@gmail.com">📧 longueiradeb@gmail.com</a>
+        <a href="https://www.linkedin.com/in/deblongueira">🔗 linkedin.com/in/deblongueira</a>
+        <a href="https://github.com/deblongueira">💻 github.com/deblongueira</a>
+      </div>
+      <a class="cvbtn" href="DeborahLongueiraResume.pdf">CV PDF</a>
 
-  <h2>Skills</h2>
-  <ul>
-    <li><strong>Languages:</strong> English (bilingual), Spanish (native)</li>
-    <li><strong>Programming:</strong> Java, C, C++, VBA, Python, SQL, R, DAX</li>
-    <li><strong>Tools:</strong> Git, GitHub, Snowflake, Power BI, Power Apps, Power Automate, Tableau, Figma, Miro, Excel, Word, PowerPoint</li>
-    <li><strong>Databases:</strong> SQLite, MySQL, Snowflake</li>
-  </ul>
+      <div class="block">
+        <h3>EDUCATION</h3>
+        <div class="edu-item">
+          <div class="degree">Master of Business Design (MBDesign)</div>
+          <div>Specialization in Innovation, Technology & Design</div>
+          <div>Universitat de Barcelona · UPC</div>
+        </div>
+        <div class="edu-item">
+          <div class="degree">B.S. Computer Science</div>
+          <div>Minor in Cognitive Science</div>
+          <div>University of Florida</div>
+        </div>
+      </div>
+    </aside>
+  </div>
 </body>
 </html>
