@@ -11,13 +11,14 @@
   <style>
     * { box-sizing: border-box; }
     :root{
-      /* Two-tone medical teal */
-      --teal-dark:#2F7D8A;   /* top */
-      --teal-light:#58AAB7;  /* bottom (lighter) */
-      --teal-accent:#79C3CF; /* hover/accent for PDF button */
+      /* Option B: dark teal header + very light teal details */
+      --teal-dark:#2F7D8A;    /* header background */
+      --teal-accent:#79C3CF;  /* small accent (PDF hover) */
+      --teal-verylight:#E6F4F6; /* details background (soft, pastel) */
 
       --bg:#f5f6f7;
       --text:#111827;
+      --muted:#4B5563;
     }
 
     html,body{
@@ -77,7 +78,7 @@
     .sidebar .hero h1{font-size:2.2rem;line-height:1.1;margin:0 0 10px;}
     .sidebar .hero .role{opacity:.95;margin:6px 0;font-size:1.05rem;font-weight:500;}
 
-    /* Resume PDF floating icon (white icon) */
+    /* Resume PDF floating icon */
     .resume-icon-float{
       position:absolute;bottom:-4px;right:-4px;
       background:var(--teal-accent);
@@ -88,37 +89,41 @@
       transition:transform .06s ease, background .15s ease;
       z-index:1;
     }
-    .resume-icon-float:hover{background:#8fd1db;box-shadow:0 4px 10px rgba(0,0,0,.25);}
+    .resume-icon-float:hover{background:#90D3DD;box-shadow:0 4px 10px rgba(0,0,0,.25);}
     .resume-icon-float:active{transform:translateY(1px);}
     .pdf-icon{width:22px;height:22px;color:#fff;display:block;}
 
-    /* Bottom: lighter teal */
+    /* Bottom: very light teal with deliberate divider */
     .sidebar .details{
-      background:var(--teal-light);
-      color:#fff;
+      background:var(--teal-verylight);
+      color:var(--text);
       padding:24px 28px 26px;
       font-size:0.9rem;line-height:1.55;
       flex-grow:1;
-      hyphens:none;-webkit-hyphens:none; /* avoid mid-word breaks */
+      border-top:1px solid rgba(47,125,138,.20); /* subtle transition line */
+      hyphens:none;-webkit-hyphens:none;
     }
-    .sidebar .contact{margin-top:6px}
+
+    /* Contact links: inline, no boxes */
+    .sidebar .contact{margin-top:6px;display:grid;gap:8px;}
     .sidebar .contact a{
-      display:flex;align-items:center;gap:12px;
-      padding:12px;border-radius:10px;color:#fff;
-      margin-bottom:8px;background:rgba(255,255,255,.12);
+      display:flex;align-items:center;gap:12px;color:var(--text);
     }
-    .sidebar .contact a:hover{background:rgba(255,255,255,.2);}
-    .sidebar .contact i{width:24px;text-align:center;font-size:1.15rem;color:#fff;}
+    .sidebar .contact a:hover{opacity:.9;}
+    .sidebar .contact i{
+      width:24px;text-align:center;font-size:1.15rem;
+      color:var(--teal-dark); /* teal icon for contrast on light bg */
+    }
 
-    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
-    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(47,125,138,.20)}
+    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#1f2937}
 
-    /* Education (degree bright, lines lighter) */
+    /* Education (degree darker, lines lighter) */
     .edu-item{margin:0 0 16px}
-    .edu-item .degree{font-weight:700;font-size:0.96rem;color:#fff;}
-    .edu-item .line{margin-top:2px;font-size:0.9rem;color:rgba(255,255,255,.9);}
-    
-    /* Badges (unchanged) */
+    .edu-item .degree{font-weight:700;font-size:0.96rem;color:#0f172a;}
+    .edu-item .line{margin-top:2px;font-size:0.9rem;color:#465466;}
+
+    /* Badges etc. (unchanged) */
     .badge{display:inline-block;border:1px solid #e4e7ea;border-radius:999px;padding:3px 8px;margin:3px 6px 0 0;font-size:.85rem;color:#47505a}
     .note{background:#f7fafb;border:1px solid #e6eef2;border-radius:8px;padding:10px 12px}
     .small{font-size:.95rem}
@@ -180,7 +185,7 @@
             <i class="fa-regular fa-circle-user"></i>
           </div>
 
-          <!-- Resume icon (white) -->
+          <!-- Resume icon -->
           <a class="resume-icon-float" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
             <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
               <defs>
@@ -202,7 +207,7 @@
         <div class="role">Engineer at CHSFL</div>
       </div>
 
-      <!-- Bottom: lighter teal -->
+      <!-- Bottom: very light teal -->
       <div class="details">
         <div class="contact">
           <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i> longueiradeb@gmail.com</a>
