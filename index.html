@@ -7,8 +7,8 @@
   <style>
     * { box-sizing: border-box; }
     :root{
-      --teal:#197c8a;
-      --teal-2:#1d8e9f;
+      --teal:#197c8a;   /* dark */
+      --teal-2:#1d8e9f; /* light */
       --bg:#f5f6f7;
       --text:#222;
       --muted:#5b6770;
@@ -28,22 +28,58 @@
     .section h2{display:flex;align-items:center;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#4a5560;margin:0 0 12px}
     .section h2 .icon{margin-right:10px;}
 
-    .sidebar{background:linear-gradient(180deg,var(--teal),var(--teal-2));color:#fff;border-radius:12px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
-    .sidebar .headshot{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.5);display:block;margin:0 auto 16px}
-    .sidebar h1{font-size:1.8rem;line-height:1.1;margin:0;text-align:center}
-    .sidebar .role{opacity:.95;text-align:center;margin:8px 0 18px}
+    /* ===== Two-tone sidebar ===== */
+    .sidebar{
+      border-radius:12px;
+      overflow:hidden;             /* clean edge between panels */
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+      color:#fff;
+      background:none;             /* panels set the bg */
+    }
+    /* Top: hero (photo + big name) */
+    .sidebar .hero{
+      background:var(--teal);
+      padding:32px 28px 28px;
+      text-align:center;
+    }
+    .sidebar .hero .headshot{
+      width:120px;height:120px;border-radius:50%;
+      object-fit:cover;border:3px solid rgba(255,255,255,.5);
+      display:block;margin:0 auto 16px
+    }
+    .sidebar .hero h1{
+      font-size:2.2rem;line-height:1.1;margin:0 0 10px
+    }
+    .sidebar .hero .role{
+      opacity:.9;margin:6px 0 0;font-size:1.05rem;font-weight:500
+    }
 
-    .sidebar .contact{margin-top:16px}
-    .sidebar .contact a{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;color:#fff}
-    .sidebar .contact a:hover{background:rgba(255,255,255,.12);text-decoration:none}
-    .sidebar .cvbtn{margin-top:10px;display:block;text-align:center;background:#fff;color:var(--teal);padding:10px 12px;border-radius:10px;font-weight:600}
-    .sidebar .cvbtn:hover{filter:brightness(.98); text-decoration:none}
+    /* Bottom: details (contact + CV + education) */
+    .sidebar .details{
+      background:var(--teal-2);
+      padding:24px 28px 26px;
+    }
+    .sidebar .contact{margin-top:6px}
+    .sidebar .contact a{
+      display:flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:10px;color:#fff
+    }
+    .sidebar .contact a:hover{
+      background:rgba(255,255,255,.12);text-decoration:none
+    }
+    .sidebar .cvbtn{
+      display:flex;align-items:center;gap:10px;
+      margin-top:10px;padding:10px 12px;border-radius:10px;
+      background:transparent;color:#fff;font-weight:600;
+      border:1px solid rgba(255,255,255,.35);text-align:left
+    }
+    .sidebar .cvbtn:hover{background:rgba(255,255,255,.12);text-decoration:none}
 
-    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2)}
+    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
     .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
-    .sidebar .edu-item{margin:0 0 12px}
-    .sidebar .edu-item .degree{font-weight:600}
-    .small{color:var(--muted);font-size:.95rem}
+
+    .edu-item{margin:0 0 12px}
+    .edu-item .degree{font-weight:600}
 
     ul{margin:6px 0 0 20px}
     li{margin-bottom:6px}
@@ -52,6 +88,7 @@
     .job .meta{color:#6b7680;font-size:.95rem;margin-bottom:6px}
     .badge{display:inline-block;border:1px solid #e4e7ea;border-radius:999px;padding:3px 8px;margin:3px 6px 0 0;font-size:.85rem;color:#47505a}
     .note{background:#f7fafb;border:1px solid #e6eef2;border-radius:8px;padding:10px 12px}
+    .small{font-size:.95rem}
     .muted{color:#6b7680}
   </style>
 </head>
@@ -62,16 +99,6 @@
         <h2>ABOUT ME</h2>
         <p>I’m an Analytics Engineer / Data Analyst experienced in building KPI-driven analytics, data models, and internal tools. I craft Power BI dashboards, model data in Snowflake and SQL, and build low-code apps and automations with Power Apps and Power Automate. I’m fluent in English and Spanish and enjoy translating business needs into reliable, maintainable data products.</p>
         <div class="note small">Based in Miami, FL · Open to remote opportunities.</div>
-      </section>
-
-      <section class="section">
-        <h2>PROJECTS</h2>
-        <ul>
-          <li><strong>CPS Impact Dashboard</strong> — Unified education & health KPIs in Power BI for Community Partnership Schools.</li>
-          <li><strong>Air Exports Market Intelligence</strong> — Dashboards comparing Latin American exports to U.S. & global markets.</li>
-          <li><strong>Revenue Plan Forecasting</strong> — Revenue & yield planning dashboards with detailed drill-downs.</li>
-          <li><strong>Performance Scorecard App</strong> — Power Apps solution with weekly tracker and automated workflows.</li>
-        </ul>
       </section>
 
       <section class="section">
@@ -112,29 +139,36 @@
       </section>
     </main>
 
+    <!-- ===== Sidebar with two panels ===== -->
     <aside class="sidebar">
-      <img class="headshot" src="me.jpg" alt="Deborah Longueira headshot">
-      <h1>Deborah<br>Longueira</h1>
-      <div class="role">Analytics Engineer</div>
-
-      <div class="contact">
-        <a href="mailto:longueiradeb@gmail.com">📧 longueiradeb@gmail.com</a>
-        <a href="https://www.linkedin.com/in/deblongueira">🔗 linkedin.com/in/deblongueira</a>
-        <a href="https://github.com/deblongueira">💻 github.com/deblongueira</a>
+      <!-- Dark teal hero -->
+      <div class="hero">
+        <img class="headshot" src="me.jpg" alt="Deborah Longueira headshot">
+        <h1>Deborah<br>Longueira</h1>
+        <div class="role">Analytics Engineer</div>
       </div>
-      <a class="cvbtn" href="DeborahLongueiraResume.pdf">CV PDF</a>
 
-      <div class="block">
-        <h3>EDUCATION</h3>
-        <div class="edu-item">
-          <div class="degree">Master of Business Design (MBDesign)</div>
-          <div>Specialization in Innovation, Technology & Design</div>
-          <div>Universitat de Barcelona · UPC</div>
+      <!-- Light teal details -->
+      <div class="details">
+        <div class="contact">
+          <a href="mailto:longueiradeb@gmail.com">📧 longueiradeb@gmail.com</a>
+          <a href="https://www.linkedin.com/in/deblongueira">🔗 linkedin.com/in/deblongueira</a>
+          <a href="https://github.com/deblongueira">💻 github.com/deblongueira</a>
         </div>
-        <div class="edu-item">
-          <div class="degree">B.S. Computer Science</div>
-          <div>Minor in Cognitive Science</div>
-          <div>University of Florida</div>
+        <a class="cvbtn" href="DeborahLongueiraResume.pdf">📄 CV PDF</a>
+
+        <div class="block">
+          <h3>EDUCATION</h3>
+          <div class="edu-item">
+            <div class="degree">Master of Business Design (MBDesign)</div>
+            <div>Specialization in Innovation, Technology & Design</div>
+            <div>Universitat de Barcelona · UPC</div>
+          </div>
+          <div class="edu-item">
+            <div class="degree">B.S. Computer Science</div>
+            <div>Minor in Cognitive Science</div>
+            <div>University of Florida</div>
+          </div>
         </div>
       </div>
     </aside>
