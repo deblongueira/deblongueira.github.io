@@ -3,7 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Deborah Longueira · Analytics Engineer</title>
+  <title>Deborah Longueira · Engineer at CHSFL</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     * { box-sizing: border-box; }
     :root{
@@ -17,7 +21,7 @@
     a{color:var(--teal);text-decoration:none}
     a:hover{text-decoration:underline}
 
-    .wrapper{display:grid;grid-template-columns: 1fr 340px; gap:32px; max-width:1200px; margin:36px auto; padding:0 20px;}
+    .wrapper{display:grid;grid-template-columns:1fr 340px;gap:32px;max-width:1200px;margin:36px auto;padding:0 20px;}
     @media (max-width: 900px){
       .wrapper{grid-template-columns:1fr}
       .sidebar{order:-1}
@@ -26,32 +30,35 @@
     .content{background:#fff;border-radius:12px;padding:32px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
     .section{margin-bottom:36px}
     .section h2{display:flex;align-items:center;font-size:1.1rem;letter-spacing:.04em;text-transform:uppercase;color:#4a5560;margin:0 0 12px}
-    .section h2 .icon{margin-right:10px;}
 
     /* ===== Two-tone sidebar ===== */
     .sidebar{
       border-radius:12px;
-      overflow:hidden;             /* clean edge between panels */
+      overflow:hidden;
       box-shadow:0 2px 8px rgba(0,0,0,.06);
       color:#fff;
-      background:none;             /* panels set the bg */
+      background:none;
     }
-    /* Top: hero (photo + big name) */
+    /* Top: hero (placeholder avatar + name) */
     .sidebar .hero{
       background:var(--teal);
       padding:32px 28px 28px;
       text-align:center;
     }
-    .sidebar .hero .headshot{
+    /* Placeholder avatar circle */
+    .avatar{
       width:120px;height:120px;border-radius:50%;
-      object-fit:cover;border:3px solid rgba(255,255,255,.5);
-      display:block;margin:0 auto 16px
+      display:inline-flex;align-items:center;justify-content:center;
+      margin:0 auto 16px;border:3px solid rgba(255,255,255,.5);
+      background:rgba(255,255,255,.15);
     }
+    .avatar i{font-size:64px;color:#fff;opacity:.95}
+
     .sidebar .hero h1{
-      font-size:2.2rem;line-height:1.1;margin:0 0 10px
+      font-size:2.2rem;line-height:1.1;margin:0 0 10px;
     }
     .sidebar .hero .role{
-      opacity:.9;margin:6px 0 0;font-size:1.05rem;font-weight:500
+      opacity:.9;margin:6px 0 0;font-size:1.05rem;font-weight:500;
     }
 
     /* Bottom: details (contact + CV + education) */
@@ -61,19 +68,23 @@
     }
     .sidebar .contact{margin-top:6px}
     .sidebar .contact a{
-      display:flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:10px;color:#fff
+      display:flex;align-items:center;gap:12px;
+      padding:12px 12px;border-radius:10px;color:#fff;
     }
     .sidebar .contact a:hover{
-      background:rgba(255,255,255,.12);text-decoration:none
+      background:rgba(255,255,255,.12);text-decoration:none;
+    }
+    .sidebar .contact i{
+      width:24px;min-width:24px;text-align:center;font-size:1.15rem;
     }
     .sidebar .cvbtn{
-      display:flex;align-items:center;gap:10px;
-      margin-top:10px;padding:10px 12px;border-radius:10px;
+      display:flex;align-items:center;gap:12px;
+      margin-top:12px;padding:12px;border-radius:10px;
       background:transparent;color:#fff;font-weight:600;
-      border:1px solid rgba(255,255,255,.35);text-align:left
+      border:1px solid rgba(255,255,255,.35);text-align:left;
     }
     .sidebar .cvbtn:hover{background:rgba(255,255,255,.12);text-decoration:none}
+    .sidebar .cvbtn i{width:24px;min-width:24px;text-align:center;font-size:1.15rem}
 
     .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
     .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
@@ -143,29 +154,32 @@
     <aside class="sidebar">
       <!-- Dark teal hero -->
       <div class="hero">
-        <img class="headshot" src="me.jpg" alt="Deborah Longueira headshot">
+        <!-- Placeholder outline avatar (no real person) -->
+        <div class="avatar" aria-hidden="true">
+          <i class="fa-regular fa-circle-user"></i>
+        </div>
         <h1>Deborah<br>Longueira</h1>
-        <div class="role">Analytics Engineer</div>
+        <div class="role">Engineer at CHSFL</div>
       </div>
 
       <!-- Light teal details -->
       <div class="details">
         <div class="contact">
-          <a href="mailto:longueiradeb@gmail.com">📧 longueiradeb@gmail.com</a>
-          <a href="https://www.linkedin.com/in/deblongueira">🔗 linkedin.com/in/deblongueira</a>
-          <a href="https://github.com/deblongueira">💻 github.com/deblongueira</a>
+          <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> longueiradeb@gmail.com</a>
+          <a href="https://www.linkedin.com/in/deblongueira"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> linkedin.com/in/deblongueira</a>
+          <a href="https://github.com/deblongueira"><i class="fa-brands fa-github" aria-hidden="true"></i> github.com/deblongueira</a>
         </div>
-        <a class="cvbtn" href="DeborahLongueiraResume.pdf">📄 CV PDF</a>
+        <a class="cvbtn" href="DeborahLongueiraResume.pdf"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> CV PDF</a>
 
         <div class="block">
           <h3>EDUCATION</h3>
           <div class="edu-item">
-            <div class="degree">Master of Business Design </div>
+            <div class="degree">Master of Business Design (MBDesign)</div>
             <div>Specialization in Innovation, Technology & Design</div>
-            <div>Universitat de Barcelona · Universitat Politècnica de Catalunya</div>
+            <div>Universitat de Barcelona · UPC</div>
           </div>
           <div class="edu-item">
-            <div class="degree">Bachelor of Science in Computer Science</div>
+            <div class="degree">B.S. Computer Science</div>
             <div>Minor in Cognitive Science</div>
             <div>University of Florida</div>
           </div>
