@@ -92,10 +92,9 @@
     .sidebar .details{
       background:var(--teal-2);
       padding:24px 28px 26px;
-      font-size:0.9rem;       /* smaller so lines don’t cut awkwardly */
+      font-size:0.9rem;       /* slightly smaller for tidy wrapping */
       line-height:1.55;
-      hyphens:auto;
-      -webkit-hyphens:auto;
+      hyphens:none; -webkit-hyphens:none; /* prevent mid-word breaks */
     }
     .sidebar .contact{margin-top:6px}
     .sidebar .contact a{
@@ -108,10 +107,25 @@
     .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
     .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
 
-    .edu-item{margin:0 0 14px}
-    .edu-item .degree{font-weight:700; line-height:1.35}
-    .edu-item .line{margin-top:2px}
+    /* Education styles */
+    .edu-item{margin:0 0 16px}
+    .edu-item .degree{
+      font-weight:700;
+      line-height:1.35;
+      font-size:0.96rem;      /* keeps long titles from awkward wrapping */
+      color:#fff;             /* degree bright (like your reference image) */
+      hyphens:none; -webkit-hyphens:none;
+      word-break:normal; overflow-wrap:normal;
+    }
+    .edu-item .line{
+      margin-top:2px;
+      font-size:0.9rem;
+      color:rgba(255,255,255,0.8); /* lighter lines under the degree */
+      hyphens:none; -webkit-hyphens:none;
+      word-break:normal; overflow-wrap:normal;
+    }
 
+    /* misc */
     ul{margin:6px 0 0 20px}
     li{margin-bottom:6px}
     .job{margin-bottom:18px}
@@ -163,9 +177,9 @@
         <h2>SKILLS</h2>
         <div>
           <span class="badge">Python</span><span class="badge">SQL</span><span class="badge">R</span><span class="badge">DAX</span>
-          <span class="badge">Power BI</span><span class="badge">Tableau</span><span class="badge">Power Apps</span><span class="badge">Git/GitHub</span>
-          <span class="badge">Snowflake</span><span class="badge">MySQL</span><span class="badge">SQLite</span>
-          <span class="badge">Figma</span><span class="badge">Miro</span><span class="badge">Excel</span>
+          <span class="badge">Power BI</span><span class="badge">Tableau</span><span class="badge">Power Apps</span>
+          <span class="badge">Git/GitHub</span><span class="badge">Snowflake</span><span class="badge">MySQL</span>
+          <span class="badge">SQLite</span><span class="badge">Figma</span><span class="badge">Miro</span><span class="badge">Excel</span>
         </div>
       </section>
     </main>
@@ -179,22 +193,22 @@
             <i class="fa-regular fa-circle-user"></i>
           </div>
 
-          <!-- Resume icon overlaid (clickable) -->
-          <a class="resume-icon-float" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
-            <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <defs>
-                <mask id="pdf-cutout">
-                  <rect width="24" height="24" fill="white"/>
-                  <text x="12" y="17" font-size="7" font-weight="700"
-                        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-                        text-anchor="middle" fill="black">PDF</text>
-                </mask>
-              </defs>
-              <path fill="currentColor" mask="url(#pdf-cutout)"
-                    d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
-                       M14 2v6h6"/>
-            </svg>
-          </a>
+        <!-- Resume icon overlaid (clickable) -->
+        <a class="resume-icon-float" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
+          <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <defs>
+              <mask id="pdf-cutout">
+                <rect width="24" height="24" fill="white"/>
+                <text x="12" y="17" font-size="7" font-weight="700"
+                      font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                      text-anchor="middle" fill="black">PDF</text>
+              </mask>
+            </defs>
+            <path fill="currentColor" mask="url(#pdf-cutout)"
+                  d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
+                     M14 2v6h6"/>
+          </svg>
+        </a>
         </div>
 
         <h1>Deborah<br>Longueira</h1>
@@ -213,7 +227,7 @@
           <h3>EDUCATION</h3>
           <div class="edu-item">
             <div class="degree">Master’s Degree in Advanced Studies in Design</div>
-            <div class="line">Specialization in Design, Innovation & Technology</div>
+            <div class="line">Specialization in Design, Innovation, & Technology</div>
             <div class="line">Polytechnic University of Catalonia (UPC) · University of Barcelona (UB)</div>
           </div>
           <div class="edu-item">
