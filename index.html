@@ -68,9 +68,10 @@
     /* Resume PDF icon style */
     .pdf-icon{
       width:20px;
-      height:auto;
+      height:20px;
       display:inline-block;
       vertical-align:middle;
+      color:#fff;
     }
 
     .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
@@ -154,9 +155,22 @@
           <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i> longueiradeb@gmail.com</a>
           <a href="https://www.linkedin.com/in/deblongueira"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/deblongueira</a>
           <a href="https://github.com/deblongueira"><i class="fa-brands fa-github"></i> github.com/deblongueira</a>
-          <!-- Adobe Acrobat style PDF icon -->
-          <a href="DeborahLongueiraResume.pdf">
-            <img src="pdf-icon.png" alt="PDF" class="pdf-icon"> Resume PDF
+          <!-- Inline PDF SVG icon -->
+          <a href="DeborahLongueiraResume.pdf" target="_blank">
+            <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-label="PDF file">
+              <defs>
+                <mask id="pdf-cutout">
+                  <rect width="24" height="24" fill="white"/>
+                  <text x="12" y="17" font-size="7" font-weight="700"
+                        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                        text-anchor="middle" fill="black">PDF</text>
+                </mask>
+              </defs>
+              <path fill="currentColor" mask="url(#pdf-cutout)"
+                    d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
+                       M14 2v6h6"/>
+            </svg>
+            Resume PDF
           </a>
         </div>
 
