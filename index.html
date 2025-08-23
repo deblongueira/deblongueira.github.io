@@ -12,13 +12,12 @@
     * { box-sizing: border-box; }
     :root{
       /* Two-tone medical teal */
-      --teal-dark:#2F7D8A;   /* top: dark teal */
-      --teal-light:#4C9BA8;  /* bottom: lighter teal */
-      --accent:#5FB4C2;      /* accent hover */
+      --teal-dark:#2F7D8A;   /* top */
+      --teal-light:#58AAB7;  /* bottom (lighter) */
+      --teal-accent:#79C3CF; /* hover/accent for PDF button */
 
       --bg:#f5f6f7;
       --text:#111827;
-      --muted:#6b7280;
     }
 
     html,body{
@@ -36,7 +35,7 @@
       max-width:1200px;
       margin:36px auto;
       padding:0 20px;
-      align-items:stretch;
+      align-items:stretch; /* sidebar matches left column height */
     }
     @media (max-width: 900px){
       .wrapper{grid-template-columns:1fr}
@@ -53,14 +52,14 @@
       text-transform:uppercase;color:#4a5560;margin:0 0 12px
     }
 
-    /* Sidebar */
+    /* ===== Sidebar ===== */
     .sidebar{
       border-radius:12px;overflow:hidden;
       box-shadow:0 2px 8px rgba(0,0,0,.06);
       display:flex;flex-direction:column;
     }
 
-    /* Hero top: dark teal */
+    /* Top: dark teal */
     .sidebar .hero{
       background:var(--teal-dark);
       color:#fff;
@@ -78,34 +77,35 @@
     .sidebar .hero h1{font-size:2.2rem;line-height:1.1;margin:0 0 10px;}
     .sidebar .hero .role{opacity:.95;margin:6px 0;font-size:1.05rem;font-weight:500;}
 
-    /* Resume PDF floating icon */
+    /* Resume PDF floating icon (white icon) */
     .resume-icon-float{
       position:absolute;bottom:-4px;right:-4px;
-      background:var(--accent);
-      border:2px solid rgba(255,255,255,.75);
+      background:var(--teal-accent);
+      border:2px solid rgba(255,255,255,.8);
       border-radius:50%;width:38px;height:38px;
       display:flex;align-items:center;justify-content:center;
       box-shadow:0 2px 6px rgba(0,0,0,.25);
       transition:transform .06s ease, background .15s ease;
       z-index:1;
     }
-    .resume-icon-float:hover{background:#7fc9d4;box-shadow:0 4px 10px rgba(0,0,0,.25);}
+    .resume-icon-float:hover{background:#8fd1db;box-shadow:0 4px 10px rgba(0,0,0,.25);}
     .resume-icon-float:active{transform:translateY(1px);}
     .pdf-icon{width:22px;height:22px;color:#fff;display:block;}
 
-    /* Details bottom: lighter teal */
+    /* Bottom: lighter teal */
     .sidebar .details{
       background:var(--teal-light);
       color:#fff;
       padding:24px 28px 26px;
       font-size:0.9rem;line-height:1.55;
       flex-grow:1;
+      hyphens:none;-webkit-hyphens:none; /* avoid mid-word breaks */
     }
+    .sidebar .contact{margin-top:6px}
     .sidebar .contact a{
       display:flex;align-items:center;gap:12px;
       padding:12px;border-radius:10px;color:#fff;
-      margin-bottom:8px;
-      background:rgba(255,255,255,.1);
+      margin-bottom:8px;background:rgba(255,255,255,.12);
     }
     .sidebar .contact a:hover{background:rgba(255,255,255,.2);}
     .sidebar .contact i{width:24px;text-align:center;font-size:1.15rem;color:#fff;}
@@ -113,10 +113,15 @@
     .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
     .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#fff}
 
-    /* Education */
+    /* Education (degree bright, lines lighter) */
     .edu-item{margin:0 0 16px}
     .edu-item .degree{font-weight:700;font-size:0.96rem;color:#fff;}
     .edu-item .line{margin-top:2px;font-size:0.9rem;color:rgba(255,255,255,.9);}
+    
+    /* Badges (unchanged) */
+    .badge{display:inline-block;border:1px solid #e4e7ea;border-radius:999px;padding:3px 8px;margin:3px 6px 0 0;font-size:.85rem;color:#47505a}
+    .note{background:#f7fafb;border:1px solid #e6eef2;border-radius:8px;padding:10px 12px}
+    .small{font-size:.95rem}
   </style>
 </head>
 <body>
@@ -150,26 +155,34 @@
             <li>Monitored cargo volumes and capacity utilization for strategy.</li>
           </ul>
         </div>
+        <div class="small muted">
+          <span class="badge">Power BI</span><span class="badge">Snowflake</span><span class="badge">SQL</span><span class="badge">Python</span><span class="badge">Power Apps</span><span class="badge">Power Automate</span>
+        </div>
       </section>
 
       <section class="section">
         <h2>SKILLS</h2>
         <div>
           <span class="badge">Python</span><span class="badge">SQL</span><span class="badge">R</span><span class="badge">DAX</span>
-          <span class="badge">Power BI</span><span class="badge">Tableau</span><span class="badge">Power Apps</span>
-          <span class="badge">Git/GitHub</span><span class="badge">Snowflake</span><span class="badge">MySQL</span>
-          <span class="badge">SQLite</span><span class="badge">Figma</span><span class="badge">Miro</span><span class="badge">Excel</span>
+          <span class="badge">Power BI</span><span class="badge">Tableau</span><span class="badge">Power Apps</span><span class="badge">Git/GitHub</span>
+          <span class="badge">Snowflake</span><span class="badge">MySQL</span><span class="badge">SQLite</span>
+          <span class="badge">Figma</span><span class="badge">Miro</span><span class="badge">Excel</span>
         </div>
       </section>
     </main>
 
-    <!-- Sidebar -->
+    <!-- ===== Sidebar ===== -->
     <aside class="sidebar">
+      <!-- Top: dark teal -->
       <div class="hero">
         <div class="avatar-wrapper">
-          <div class="avatar"><i class="fa-regular fa-circle-user"></i></div>
+          <div class="avatar" aria-hidden="true">
+            <i class="fa-regular fa-circle-user"></i>
+          </div>
+
+          <!-- Resume icon (white) -->
           <a class="resume-icon-float" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
-            <svg class="pdf-icon" viewBox="0 0 24 24">
+            <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
               <defs>
                 <mask id="pdf-cutout">
                   <rect width="24" height="24" fill="white"/>
@@ -179,14 +192,17 @@
                 </mask>
               </defs>
               <path fill="currentColor" mask="url(#pdf-cutout)"
-                    d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z M14 2v6h6"/>
+                    d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
+                       M14 2v6h6"/>
             </svg>
           </a>
         </div>
+
         <h1>Deborah<br>Longueira</h1>
         <div class="role">Engineer at CHSFL</div>
       </div>
 
+      <!-- Bottom: lighter teal -->
       <div class="details">
         <div class="contact">
           <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i> longueiradeb@gmail.com</a>
