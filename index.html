@@ -89,7 +89,14 @@
     }
 
     /* Bottom: details */
-    .sidebar .details{background:var(--teal-2);padding:24px 28px 26px;}
+    .sidebar .details{
+      background:var(--teal-2);
+      padding:24px 28px 26px;
+      font-size:0.97rem;
+      line-height:1.55;
+      hyphens:auto;
+      -webkit-hyphens:auto;
+    }
     .sidebar .contact{margin-top:6px}
     .sidebar .contact a{
       display:flex;align-items:center;gap:12px;
@@ -101,8 +108,9 @@
     .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
     .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
 
-    .edu-item{margin:0 0 12px}
-    .edu-item .degree{font-weight:600}
+    .edu-item{margin:0 0 14px}
+    .edu-item .degree{font-weight:700; line-height:1.35}
+    .edu-item .line{margin-top:2px}
 
     ul{margin:6px 0 0 20px}
     li{margin-bottom:6px}
@@ -205,13 +213,13 @@
           <h3>EDUCATION</h3>
           <div class="edu-item">
             <div class="degree">Master’s Degree in Advanced Studies in Design</div>
-            <div>Specialization in Innovation, Technology & Design</div>
-            <div>Polytechnic University of Catalonia (UPC) · University of Barcelona (UB)</div>
+            <div class="line">Specialization in Design, Innovation & Technology (English)</div>
+            <div class="line">Polytechnic University of Catalonia (UPC) · University of Barcelona (UB)</div>
           </div>
           <div class="edu-item">
             <div class="degree">Bachelor of Science in Computer Science</div>
-            <div>Minor in Cognitive Science</div>
-            <div>University of Florida — Herbert Wertheim College of Engineering</div>
+            <div class="line">Minor in Cognitive Science</div>
+            <div class="line">University of Florida</div>
           </div>
         </div>
       </div>
