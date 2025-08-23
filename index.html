@@ -11,14 +11,14 @@
   <style>
     * { box-sizing: border-box; }
     :root{
-      /* Pink/Purple two-tone (soft, no gradient) */
-      --accent-dark:#9333EA;   /* rich violet (top) */
-      --accent-mid:#A855F7;    /* button/icon accent */
-      --accent-light:#E9D5FF;  /* pastel lavender (bottom) */
+      /* Classic medical blues (professional, calm) */
+      --med-dark:#1E3A8A;   /* navy for header */
+      --med-accent:#2563EB; /* medium blue for accents */
+      --med-light:#E0F2FE;  /* very light blue for details */
 
       --bg:#f5f6f7;
-      --text:#222;
-      --muted:#5b6770;
+      --text:#111827;       /* slate-900 */
+      --muted:#4B5563;      /* slate-600 */
     }
 
     html,body{
@@ -26,7 +26,7 @@
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       min-height:100%;
     }
-    a{color:var(--accent-dark);text-decoration:none}
+    a{color:var(--med-accent);text-decoration:none}
     a:hover{text-decoration:underline}
 
     .wrapper{
@@ -36,7 +36,7 @@
       max-width:1200px;
       margin:36px auto;
       padding:0 20px;
-      align-items:stretch; /* ensure sidebar matches left column height */
+      align-items:stretch; /* sidebar matches left column height */
     }
     @media (max-width: 900px){
       .wrapper{grid-template-columns:1fr}
@@ -61,9 +61,9 @@
       display:flex;flex-direction:column;
     }
 
-    /* Top: hero (solid rich violet) */
+    /* Top: hero (solid navy) */
     .sidebar .hero{
-      background:var(--accent-dark);
+      background:var(--med-dark);
       color:#fff;
       padding:32px 28px 22px;
       text-align:center;position:relative;
@@ -72,32 +72,32 @@
     .avatar{
       width:100%;height:100%;border-radius:50%;
       display:inline-flex;align-items:center;justify-content:center;
-      border:3px solid rgba(255,255,255,.5);
-      background:rgba(255,255,255,.15);
+      border:3px solid rgba(255,255,255,.45);
+      background:rgba(255,255,255,.12);
     }
     .avatar i{font-size:64px;color:#fff;opacity:.95}
     .sidebar .hero h1{font-size:2.2rem;line-height:1.1;margin:0 0 10px;}
-    .sidebar .hero .role{opacity:.9;margin:6px 0 6px;font-size:1.05rem;font-weight:500;}
+    .sidebar .hero .role{opacity:.95;margin:6px 0 6px;font-size:1.05rem;font-weight:500;}
 
     /* Resume icon overlaid on avatar corner */
     .resume-icon-float{
       position:absolute;bottom:-4px;right:-4px;
-      background:var(--accent-mid);
-      border:2px solid rgba(255,255,255,.7);
+      background:var(--med-accent);
+      border:2px solid rgba(255,255,255,.75);
       border-radius:50%;width:38px;height:38px;
       display:flex;align-items:center;justify-content:center;
       box-shadow:0 2px 6px rgba(0,0,0,.25);
       transition:transform .06s ease, background .15s ease, box-shadow .15s ease;
       z-index:1;
     }
-    .resume-icon-float:hover{background:#b47cfb;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,.28);}
+    .resume-icon-float:hover{background:#3B82F6;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,.28);}
     .resume-icon-float:active{transform:translateY(1px);}
     .pdf-icon{width:22px;height:22px;color:#fff;display:block;}
 
-    /* Bottom: details (solid pastel lavender, darker text for contrast) */
+    /* Bottom: details (very light blue, dark text) */
     .sidebar .details{
-      background:var(--accent-light);
-      color:#222;
+      background:var(--med-light);
+      color:var(--text);
       padding:24px 28px 26px;
       font-size:0.9rem;line-height:1.55;
       flex-grow:1;           /* stretch to match left column */
@@ -106,22 +106,22 @@
     .sidebar .contact{margin-top:6px}
     .sidebar .contact a{
       display:flex;align-items:center;gap:12px;
-      padding:12px 12px;border-radius:10px;color:#222;
+      padding:12px 12px;border-radius:10px;color:var(--text);
     }
-    .sidebar .contact a:hover{background:rgba(0,0,0,.06);text-decoration:none;}
-    .sidebar .contact i{width:24px;min-width:24px;text-align:center;font-size:1.15rem;}
+    .sidebar .contact a:hover{background:rgba(2,6,23,.06);text-decoration:none;} /* slate-950 @ 6% */
+    .sidebar .contact i{width:24px;min-width:24px;text-align:center;font-size:1.15rem;color:var(--med-dark);}
 
-    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(0,0,0,.08)}
-    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#2b2b2b}
+    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(2,6,23,.08)}
+    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#1f2937}
 
-    /* Education styles (degree darker, lines lighter) */
+    /* Education (degree darker, lines lighter) */
     .edu-item{margin:0 0 16px}
     .edu-item .degree{
-      font-weight:700;line-height:1.35;font-size:0.96rem;color:#111;
+      font-weight:700;line-height:1.35;font-size:0.96rem;color:#0f172a; /* slate-900 */
       hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;
     }
     .edu-item .line{
-      margin-top:2px;font-size:0.9rem;color:#555;
+      margin-top:2px;font-size:0.9rem;color:#465466; /* slate-ish muted */
       hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;
     }
 
