@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Deborah Longueira · Engineer at CHSFL</title>
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome for other icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
@@ -39,13 +39,12 @@
       color:#fff;
       background:none;
     }
-    /* Top: hero (placeholder avatar + name) */
+    /* Top: hero */
     .sidebar .hero{
       background:var(--teal);
       padding:32px 28px 28px;
       text-align:center;
     }
-    /* Placeholder avatar circle */
     .avatar{
       width:120px;height:120px;border-radius:50%;
       display:inline-flex;align-items:center;justify-content:center;
@@ -53,29 +52,25 @@
       background:rgba(255,255,255,.15);
     }
     .avatar i{font-size:64px;color:#fff;opacity:.95}
+    .sidebar .hero h1{font-size:2.2rem;line-height:1.1;margin:0 0 10px;}
+    .sidebar .hero .role{opacity:.9;margin:6px 0 0;font-size:1.05rem;font-weight:500;}
 
-    .sidebar .hero h1{
-      font-size:2.2rem;line-height:1.1;margin:0 0 10px;
-    }
-    .sidebar .hero .role{
-      opacity:.9;margin:6px 0 0;font-size:1.05rem;font-weight:500;
-    }
-
-    /* Bottom: details (contact + resume + education) */
-    .sidebar .details{
-      background:var(--teal-2);
-      padding:24px 28px 26px;
-    }
+    /* Bottom: details */
+    .sidebar .details{background:var(--teal-2);padding:24px 28px 26px;}
     .sidebar .contact{margin-top:6px}
     .sidebar .contact a{
       display:flex;align-items:center;gap:12px;
       padding:12px 12px;border-radius:10px;color:#fff;
     }
-    .sidebar .contact a:hover{
-      background:rgba(255,255,255,.12);text-decoration:none;
-    }
-    .sidebar .contact i{
-      width:24px;min-width:24px;text-align:center;font-size:1.15rem;
+    .sidebar .contact a:hover{background:rgba(255,255,255,.12);text-decoration:none;}
+    .sidebar .contact i{width:24px;min-width:24px;text-align:center;font-size:1.15rem;}
+
+    /* Resume PDF icon style */
+    .pdf-icon{
+      width:20px;
+      height:auto;
+      display:inline-block;
+      vertical-align:middle;
     }
 
     .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
@@ -142,11 +137,10 @@
       </section>
     </main>
 
-    <!-- ===== Sidebar with two panels ===== -->
+    <!-- ===== Sidebar ===== -->
     <aside class="sidebar">
-      <!-- Dark teal hero -->
+      <!-- Hero -->
       <div class="hero">
-        <!-- Placeholder outline avatar (no real person) -->
         <div class="avatar" aria-hidden="true">
           <i class="fa-regular fa-circle-user"></i>
         </div>
@@ -154,13 +148,16 @@
         <div class="role">Engineer at CHSFL</div>
       </div>
 
-      <!-- Light teal details -->
+      <!-- Details -->
       <div class="details">
         <div class="contact">
           <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i> longueiradeb@gmail.com</a>
           <a href="https://www.linkedin.com/in/deblongueira"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/deblongueira</a>
           <a href="https://github.com/deblongueira"><i class="fa-brands fa-github"></i> github.com/deblongueira</a>
-          <a href="DeborahLongueiraResume.pdf"><i class="fa-solid fa-file-pdf"></i> Resume</a>
+          <!-- Adobe Acrobat style PDF icon -->
+          <a href="DeborahLongueiraResume.pdf">
+            <img src="pdf-icon.png" alt="PDF" class="pdf-icon"> Resume PDF
+          </a>
         </div>
 
         <div class="block">
