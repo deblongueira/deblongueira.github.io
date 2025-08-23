@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Deborah Longueira · Engineer at CHSFL</title>
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome for other icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
@@ -42,7 +42,7 @@
     /* Top: hero */
     .sidebar .hero{
       background:var(--teal);
-      padding:32px 28px 28px;
+      padding:32px 28px 22px;
       text-align:center;
     }
     .avatar{
@@ -53,7 +53,27 @@
     }
     .avatar i{font-size:64px;color:#fff;opacity:.95}
     .sidebar .hero h1{font-size:2.2rem;line-height:1.1;margin:0 0 10px;}
-    .sidebar .hero .role{opacity:.9;margin:6px 0 0;font-size:1.05rem;font-weight:500;}
+    .sidebar .hero .role{opacity:.9;margin:6px 0 6px;font-size:1.05rem;font-weight:500;}
+
+    /* Resume icon in hero */
+    .resume-icon-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:8px;
+      padding:8px;                 /* tap target */
+      border-radius:10px;
+      transition:background .15s ease, transform .05s ease;
+    }
+    .resume-icon-link:hover{ background:rgba(255,255,255,.14); text-decoration:none; }
+    .resume-icon-link:active{ transform:translateY(1px); }
+
+    .pdf-icon{
+      width:30px;
+      height:30px;
+      color:#fff;                  /* white icon */
+      display:block;
+    }
 
     /* Bottom: details */
     .sidebar .details{background:var(--teal-2);padding:24px 28px 26px;}
@@ -63,13 +83,8 @@
       padding:12px 12px;border-radius:10px;color:#fff;
     }
     .sidebar .contact a:hover{background:rgba(255,255,255,.12);text-decoration:none;}
-    .sidebar .contact i{
-      width:24px;min-width:24px;text-align:center;font-size:1.15rem;
-    }
+    .sidebar .contact i{width:24px;min-width:24px;text-align:center;font-size:1.15rem;}
 
-    /* Optional: make the PDF icon a touch bolder without turning it red */
-    .sidebar .contact .fa-file-pdf { font-size:1.2rem; }
-    
     .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
     .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
 
@@ -143,6 +158,23 @@
         </div>
         <h1>Deborah<br>Longueira</h1>
         <div class="role">Engineer at CHSFL</div>
+
+        <!-- Resume icon only (clickable) -->
+        <a class="resume-icon-link" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
+          <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <defs>
+              <mask id="pdf-cutout">
+                <rect width="24" height="24" fill="white"/>
+                <text x="12" y="17" font-size="7" font-weight="700"
+                      font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                      text-anchor="middle" fill="black">PDF</text>
+              </mask>
+            </defs>
+            <path fill="currentColor" mask="url(#pdf-cutout)"
+                  d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
+                     M14 2v6h6"/>
+          </svg>
+        </a>
       </div>
 
       <!-- Details -->
@@ -151,12 +183,6 @@
           <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i> longueiradeb@gmail.com</a>
           <a href="https://www.linkedin.com/in/deblongueira"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/deblongueira</a>
           <a href="https://github.com/deblongueira"><i class="fa-brands fa-github"></i> github.com/deblongueira</a>
-
-          <!-- Font Awesome PDF icon for resume -->
-          <a href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener">
-            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
-            <span>Resume</span>
-          </a>
         </div>
 
         <div class="block">
