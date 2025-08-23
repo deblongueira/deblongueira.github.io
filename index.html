@@ -5,20 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Deborah Longueira · Engineer at CHSFL</title>
 
-  <!-- Font Awesome for other icons -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     * { box-sizing: border-box; }
     :root{
-      /* Classic medical blues (professional, calm) */
-      --med-dark:#1E3A8A;   /* navy for header */
-      --med-accent:#2563EB; /* medium blue for accents */
-      --med-light:#E0F2FE;  /* very light blue for details */
-
+      /* Medical teal theme */
+      --med-teal:#2F7D8A;   /* teal you shared */
+      --med-accent:#3B8796; /* slightly lighter teal for hover/accent */
       --bg:#f5f6f7;
-      --text:#111827;       /* slate-900 */
-      --muted:#4B5563;      /* slate-600 */
+      --text:#111827;
+      --muted:#6b7280;
     }
 
     html,body{
@@ -26,7 +24,7 @@
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       min-height:100%;
     }
-    a{color:var(--med-accent);text-decoration:none}
+    a{color:var(--med-teal);text-decoration:none}
     a:hover{text-decoration:underline}
 
     .wrapper{
@@ -36,7 +34,7 @@
       max-width:1200px;
       margin:36px auto;
       padding:0 20px;
-      align-items:stretch; /* sidebar matches left column height */
+      align-items:stretch;
     }
     @media (max-width: 900px){
       .wrapper{grid-template-columns:1fr}
@@ -49,37 +47,36 @@
     }
     .section{margin-bottom:36px}
     .section h2{
-      display:flex;align-items:center;font-size:1.1rem;letter-spacing:.04em;
+      font-size:1.1rem;letter-spacing:.04em;
       text-transform:uppercase;color:#4a5560;margin:0 0 12px
     }
 
-    /* ===== Sidebar ===== */
+    /* Sidebar */
     .sidebar{
       border-radius:12px;overflow:hidden;
       box-shadow:0 2px 8px rgba(0,0,0,.06);
-      background:none;
       display:flex;flex-direction:column;
+      background:var(--med-teal); /* full teal */
+      color:#fff;
     }
 
-    /* Top: hero (solid navy) */
+    /* Top hero */
     .sidebar .hero{
-      background:var(--med-dark);
-      color:#fff;
       padding:32px 28px 22px;
       text-align:center;position:relative;
     }
     .avatar-wrapper{position:relative;width:120px;height:120px;margin:0 auto 16px;}
     .avatar{
       width:100%;height:100%;border-radius:50%;
-      display:inline-flex;align-items:center;justify-content:center;
-      border:3px solid rgba(255,255,255,.45);
-      background:rgba(255,255,255,.12);
+      display:flex;align-items:center;justify-content:center;
+      border:3px solid rgba(255,255,255,.5);
+      background:rgba(255,255,255,.15);
     }
-    .avatar i{font-size:64px;color:#fff;opacity:.95}
+    .avatar i{font-size:64px;color:#fff;}
     .sidebar .hero h1{font-size:2.2rem;line-height:1.1;margin:0 0 10px;}
-    .sidebar .hero .role{opacity:.95;margin:6px 0 6px;font-size:1.05rem;font-weight:500;}
+    .sidebar .hero .role{opacity:.95;margin:6px 0;font-size:1.05rem;font-weight:500;}
 
-    /* Resume icon overlaid on avatar corner */
+    /* Resume icon */
     .resume-icon-float{
       position:absolute;bottom:-4px;right:-4px;
       background:var(--med-accent);
@@ -87,54 +84,35 @@
       border-radius:50%;width:38px;height:38px;
       display:flex;align-items:center;justify-content:center;
       box-shadow:0 2px 6px rgba(0,0,0,.25);
-      transition:transform .06s ease, background .15s ease, box-shadow .15s ease;
+      transition:transform .06s ease, background .15s ease;
       z-index:1;
     }
-    .resume-icon-float:hover{background:#3B82F6;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,.28);}
+    .resume-icon-float:hover{background:#4b9fae;box-shadow:0 4px 10px rgba(0,0,0,.25);}
     .resume-icon-float:active{transform:translateY(1px);}
     .pdf-icon{width:22px;height:22px;color:#fff;display:block;}
 
-    /* Bottom: details (very light blue, dark text) */
+    /* Bottom details (same teal) */
     .sidebar .details{
-      background:var(--med-light);
-      color:var(--text);
       padding:24px 28px 26px;
       font-size:0.9rem;line-height:1.55;
-      flex-grow:1;           /* stretch to match left column */
-      hyphens:none;-webkit-hyphens:none; /* no mid-word breaks */
+      flex-grow:1;
     }
-    .sidebar .contact{margin-top:6px}
     .sidebar .contact a{
       display:flex;align-items:center;gap:12px;
-      padding:12px 12px;border-radius:10px;color:var(--text);
+      padding:12px;border-radius:10px;color:#fff;
+      background:rgba(255,255,255,.1);
+      margin-bottom:8px;
     }
-    .sidebar .contact a:hover{background:rgba(2,6,23,.06);text-decoration:none;} /* slate-950 @ 6% */
-    .sidebar .contact i{width:24px;min-width:24px;text-align:center;font-size:1.15rem;color:var(--med-dark);}
+    .sidebar .contact a:hover{background:rgba(255,255,255,.2);}
+    .sidebar .contact i{width:24px;text-align:center;font-size:1.15rem;color:#fff;}
 
-    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(2,6,23,.08)}
-    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#1f2937}
+    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
+    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#fff}
 
-    /* Education (degree darker, lines lighter) */
+    /* Education */
     .edu-item{margin:0 0 16px}
-    .edu-item .degree{
-      font-weight:700;line-height:1.35;font-size:0.96rem;color:#0f172a; /* slate-900 */
-      hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;
-    }
-    .edu-item .line{
-      margin-top:2px;font-size:0.9rem;color:#465466; /* slate-ish muted */
-      hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;
-    }
-
-    /* misc */
-    ul{margin:6px 0 0 20px}
-    li{margin-bottom:6px}
-    .job{margin-bottom:18px}
-    .job h3{margin:0 0 4px}
-    .job .meta{color:#6b7680;font-size:.95rem;margin-bottom:6px}
-    .badge{display:inline-block;border:1px solid #e4e7ea;border-radius:999px;padding:3px 8px;margin:3px 6px 0 0;font-size:.85rem;color:#47505a}
-    .note{background:#f7fafb;border:1px solid #e6eef2;border-radius:8px;padding:10px 12px}
-    .small{font-size:.95rem}
-    .muted{color:#6b7680}
+    .edu-item .degree{font-weight:700;font-size:0.96rem;color:#fff;}
+    .edu-item .line{margin-top:2px;font-size:0.9rem;color:rgba(255,255,255,.85);}
   </style>
 </head>
 <body>
@@ -168,10 +146,6 @@
             <li>Monitored cargo volumes and capacity utilization for strategy.</li>
           </ul>
         </div>
-        <div class="small muted">
-          <span class="badge">Power BI</span><span class="badge">Snowflake</span><span class="badge">SQL</span>
-          <span class="badge">Python</span><span class="badge">Power Apps</span><span class="badge">Power Automate</span>
-        </div>
       </section>
 
       <section class="section">
@@ -185,18 +159,13 @@
       </section>
     </main>
 
-    <!-- ===== Sidebar ===== -->
+    <!-- Sidebar -->
     <aside class="sidebar">
-      <!-- Hero -->
       <div class="hero">
         <div class="avatar-wrapper">
-          <div class="avatar" aria-hidden="true">
-            <i class="fa-regular fa-circle-user"></i>
-          </div>
-
-          <!-- Resume icon overlaid (clickable) -->
+          <div class="avatar"><i class="fa-regular fa-circle-user"></i></div>
           <a class="resume-icon-float" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
-            <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <svg class="pdf-icon" viewBox="0 0 24 24">
               <defs>
                 <mask id="pdf-cutout">
                   <rect width="24" height="24" fill="white"/>
@@ -206,22 +175,19 @@
                 </mask>
               </defs>
               <path fill="currentColor" mask="url(#pdf-cutout)"
-                    d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
-                       M14 2v6h6"/>
+                    d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z M14 2v6h6"/>
             </svg>
           </a>
         </div>
-
         <h1>Deborah<br>Longueira</h1>
         <div class="role">Engineer at CHSFL</div>
       </div>
 
-      <!-- Details -->
       <div class="details">
         <div class="contact">
-          <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i> longueiradeb@gmail.com</a>
-          <a href="https://www.linkedin.com/in/deblongueira"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/deblongueira</a>
-          <a href="https://github.com/deblongueira"><i class="fa-brands fa-github"></i> github.com/deblongueira</a>
+          <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://www.linkedin.com/in/deblongueira"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/deblongueira"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
 
         <div class="block">
