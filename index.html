@@ -11,10 +11,11 @@
   <style>
     * { box-sizing: border-box; }
     :root{
-      /* LinkedIn-inspired, fresher Gen Z blues */
-      --linkedin-dark:#0A66C2;   /* brand anchor */
-      --linkedin-mid:#1E90FF;    /* bright/dodger */
-      --linkedin-light:#63B3ED;  /* soft sky */
+      /* Pink/Purple two-tone (soft, no gradient) */
+      --accent-dark:#9333EA;   /* rich violet (top) */
+      --accent-mid:#A855F7;    /* button/icon accent */
+      --accent-light:#E9D5FF;  /* pastel lavender (bottom) */
+
       --bg:#f5f6f7;
       --text:#222;
       --muted:#5b6770;
@@ -25,7 +26,7 @@
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       min-height:100%;
     }
-    a{color:var(--linkedin-dark);text-decoration:none}
+    a{color:var(--accent-dark);text-decoration:none}
     a:hover{text-decoration:underline}
 
     .wrapper{
@@ -56,13 +57,14 @@
     .sidebar{
       border-radius:12px;overflow:hidden;
       box-shadow:0 2px 8px rgba(0,0,0,.06);
-      color:#fff;background:none;
+      background:none;
       display:flex;flex-direction:column;
     }
 
-    /* Top: hero (gradient for fresh LinkedIn feel) */
+    /* Top: hero (solid rich violet) */
     .sidebar .hero{
-      background:linear-gradient(160deg, var(--linkedin-dark), var(--linkedin-mid));
+      background:var(--accent-dark);
+      color:#fff;
       padding:32px 28px 22px;
       text-align:center;position:relative;
     }
@@ -80,7 +82,7 @@
     /* Resume icon overlaid on avatar corner */
     .resume-icon-float{
       position:absolute;bottom:-4px;right:-4px;
-      background:var(--linkedin-mid);
+      background:var(--accent-mid);
       border:2px solid rgba(255,255,255,.7);
       border-radius:50%;width:38px;height:38px;
       display:flex;align-items:center;justify-content:center;
@@ -88,13 +90,14 @@
       transition:transform .06s ease, background .15s ease, box-shadow .15s ease;
       z-index:1;
     }
-    .resume-icon-float:hover{background:#2A9BFF;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,.28);}
+    .resume-icon-float:hover{background:#b47cfb;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,.28);}
     .resume-icon-float:active{transform:translateY(1px);}
     .pdf-icon{width:22px;height:22px;color:#fff;display:block;}
 
-    /* Bottom: details (soft light blue) */
+    /* Bottom: details (solid pastel lavender, darker text for contrast) */
     .sidebar .details{
-      background:var(--linkedin-light);
+      background:var(--accent-light);
+      color:#222;
       padding:24px 28px 26px;
       font-size:0.9rem;line-height:1.55;
       flex-grow:1;           /* stretch to match left column */
@@ -103,22 +106,22 @@
     .sidebar .contact{margin-top:6px}
     .sidebar .contact a{
       display:flex;align-items:center;gap:12px;
-      padding:12px 12px;border-radius:10px;color:#fff;
+      padding:12px 12px;border-radius:10px;color:#222;
     }
-    .sidebar .contact a:hover{background:rgba(255,255,255,.14);text-decoration:none;}
+    .sidebar .contact a:hover{background:rgba(0,0,0,.06);text-decoration:none;}
     .sidebar .contact i{width:24px;min-width:24px;text-align:center;font-size:1.15rem;}
 
-    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25)}
-    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase}
+    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(0,0,0,.08)}
+    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#2b2b2b}
 
-    /* Education styles (degree bright, details muted) */
+    /* Education styles (degree darker, lines lighter) */
     .edu-item{margin:0 0 16px}
     .edu-item .degree{
-      font-weight:700;line-height:1.35;font-size:0.96rem;color:#fff;
+      font-weight:700;line-height:1.35;font-size:0.96rem;color:#111;
       hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;
     }
     .edu-item .line{
-      margin-top:2px;font-size:0.9rem;color:rgba(255,255,255,0.8);
+      margin-top:2px;font-size:0.9rem;color:#555;
       hyphens:none;-webkit-hyphens:none;word-break:normal;overflow-wrap:normal;
     }
 
