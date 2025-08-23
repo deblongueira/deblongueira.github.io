@@ -39,40 +39,52 @@
       color:#fff;
       background:none;
     }
+
     /* Top: hero */
     .sidebar .hero{
       background:var(--teal);
       padding:32px 28px 22px;
       text-align:center;
+      position:relative;
+    }
+    .avatar-wrapper{
+      position:relative;
+      width:120px;
+      height:120px;
+      margin:0 auto 16px;
     }
     .avatar{
-      width:120px;height:120px;border-radius:50%;
+      width:100%;height:100%;border-radius:50%;
       display:inline-flex;align-items:center;justify-content:center;
-      margin:0 auto 16px;border:3px solid rgba(255,255,255,.5);
+      border:3px solid rgba(255,255,255,.5);
       background:rgba(255,255,255,.15);
     }
     .avatar i{font-size:64px;color:#fff;opacity:.95}
     .sidebar .hero h1{font-size:2.2rem;line-height:1.1;margin:0 0 10px;}
     .sidebar .hero .role{opacity:.9;margin:6px 0 6px;font-size:1.05rem;font-weight:500;}
 
-    /* Resume icon in hero */
-    .resume-icon-link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      margin-top:8px;
-      padding:8px;                 /* tap target */
-      border-radius:10px;
-      transition:background .15s ease, transform .05s ease;
+    /* Resume icon overlaid on avatar corner */
+    .resume-icon-float{
+      position:absolute;
+      top:-4px;              /* position at top-right corner */
+      right:-4px;
+      background:var(--teal-2);
+      border:2px solid rgba(255,255,255,.7);
+      border-radius:50%;
+      width:38px; height:38px;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 2px 6px rgba(0,0,0,.25);
+      transition:transform .06s ease, background .15s ease, box-shadow .15s ease;
     }
-    .resume-icon-link:hover{ background:rgba(255,255,255,.14); text-decoration:none; }
-    .resume-icon-link:active{ transform:translateY(1px); }
+    .resume-icon-float:hover{
+      background:#22a5b9;
+      text-decoration:none;
+      box-shadow:0 4px 10px rgba(0,0,0,.28);
+    }
+    .resume-icon-float:active{ transform:translateY(1px); }
 
     .pdf-icon{
-      width:30px;
-      height:30px;
-      color:#fff;                  /* white icon */
-      display:block;
+      width:22px; height:22px; color:#fff; display:block;
     }
 
     /* Bottom: details */
@@ -153,28 +165,31 @@
     <aside class="sidebar">
       <!-- Hero -->
       <div class="hero">
-        <div class="avatar" aria-hidden="true">
-          <i class="fa-regular fa-circle-user"></i>
+        <div class="avatar-wrapper">
+          <div class="avatar" aria-hidden="true">
+            <i class="fa-regular fa-circle-user"></i>
+          </div>
+
+          <!-- Resume icon overlaid (clickable) -->
+          <a class="resume-icon-float" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
+            <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <defs>
+                <mask id="pdf-cutout">
+                  <rect width="24" height="24" fill="white"/>
+                  <text x="12" y="17" font-size="7" font-weight="700"
+                        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                        text-anchor="middle" fill="black">PDF</text>
+                </mask>
+              </defs>
+              <path fill="currentColor" mask="url(#pdf-cutout)"
+                    d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
+                       M14 2v6h6"/>
+            </svg>
+          </a>
         </div>
+
         <h1>Deborah<br>Longueira</h1>
         <div class="role">Engineer at CHSFL</div>
-
-        <!-- Resume icon only (clickable) -->
-        <a class="resume-icon-link" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
-          <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-            <defs>
-              <mask id="pdf-cutout">
-                <rect width="24" height="24" fill="white"/>
-                <text x="12" y="17" font-size="7" font-weight="700"
-                      font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-                      text-anchor="middle" fill="black">PDF</text>
-              </mask>
-            </defs>
-            <path fill="currentColor" mask="url(#pdf-cutout)"
-                  d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
-                     M14 2v6h6"/>
-          </svg>
-        </a>
       </div>
 
       <!-- Details -->
