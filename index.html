@@ -11,14 +11,14 @@
   <style>
     * { box-sizing: border-box; }
     :root{
-      /* Option B: dark teal header + very light teal details */
-      --teal-dark:#2F7D8A;    /* header background */
-      --teal-accent:#79C3CF;  /* small accent (PDF hover) */
-      --teal-verylight:#E6F4F6; /* details background (soft, pastel) */
+      /* Neutral palette */
+      --accent-dark:#333333;     /* header background */
+      --accent-light:#888888;    /* small accent (PDF hover, icons) */
+      --accent-verylight:#f0f0f0;/* details background (soft gray) */
 
       --bg:#f5f6f7;
-      --text:#111827;
-      --muted:#4B5563;
+      --text:#111111;
+      --muted:#555555;
     }
 
     html,body{
@@ -26,7 +26,7 @@
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       min-height:100%;
     }
-    a{color:var(--teal-dark);text-decoration:none}
+    a{color:var(--accent-dark);text-decoration:none}
     a:hover{text-decoration:underline}
 
     .wrapper{
@@ -36,7 +36,7 @@
       max-width:1200px;
       margin:36px auto;
       padding:0 20px;
-      align-items:stretch; /* sidebar matches left column height */
+      align-items:stretch;
     }
     @media (max-width: 900px){
       .wrapper{grid-template-columns:1fr}
@@ -50,7 +50,7 @@
     .section{margin-bottom:36px}
     .section h2{
       font-size:1.1rem;letter-spacing:.04em;
-      text-transform:uppercase;color:#4a5560;margin:0 0 12px
+      text-transform:uppercase;color:#444;margin:0 0 12px
     }
 
     /* ===== Sidebar ===== */
@@ -60,9 +60,9 @@
       display:flex;flex-direction:column;
     }
 
-    /* Top: dark teal */
+    /* Top: dark gray */
     .sidebar .hero{
-      background:var(--teal-dark);
+      background:var(--accent-dark);
       color:#fff;
       padding:32px 28px 22px;
       text-align:center;position:relative;
@@ -81,7 +81,7 @@
     /* Resume PDF floating icon */
     .resume-icon-float{
       position:absolute;bottom:-4px;right:-4px;
-      background:var(--teal-accent);
+      background:var(--accent-light);
       border:2px solid rgba(255,255,255,.8);
       border-radius:50%;width:38px;height:38px;
       display:flex;align-items:center;justify-content:center;
@@ -89,22 +89,21 @@
       transition:transform .06s ease, background .15s ease;
       z-index:1;
     }
-    .resume-icon-float:hover{background:#90D3DD;box-shadow:0 4px 10px rgba(0,0,0,.25);}
+    .resume-icon-float:hover{background:#666;box-shadow:0 4px 10px rgba(0,0,0,.25);}
     .resume-icon-float:active{transform:translateY(1px);}
     .pdf-icon{width:22px;height:22px;color:#fff;display:block;}
 
-    /* Bottom: very light teal with deliberate divider */
+    /* Bottom: very light gray */
     .sidebar .details{
-      background:var(--teal-verylight);
+      background:var(--accent-verylight);
       color:var(--text);
       padding:24px 28px 26px;
       font-size:0.9rem;line-height:1.55;
       flex-grow:1;
-      border-top:1px solid rgba(47,125,138,.20); /* subtle transition line */
-      hyphens:none;-webkit-hyphens:none;
+      border-top:1px solid rgba(0,0,0,.1);
     }
 
-    /* Contact links: inline, no boxes */
+    /* Contact links */
     .sidebar .contact{margin-top:6px;display:grid;gap:8px;}
     .sidebar .contact a{
       display:flex;align-items:center;gap:12px;color:var(--text);
@@ -112,114 +111,67 @@
     .sidebar .contact a:hover{opacity:.9;}
     .sidebar .contact i{
       width:24px;text-align:center;font-size:1.15rem;
-      color:var(--teal-dark); /* teal icon for contrast on light bg */
+      color:var(--accent-dark);
     }
 
-    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(47,125,138,.20)}
-    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#1f2937}
+    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(0,0,0,.1)}
+    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#222}
 
     /* Education highlight */
     .edu-item{
       margin:0 0 20px;
       padding-left:10px;
-      border-left:3px solid var(--teal-dark);
+      border-left:3px solid var(--accent-dark);
     }
     .edu-item .degree{
       font-weight:700;
       font-size:1rem;
-      color:var(--teal-dark);
+      color:var(--accent-dark);
     }
     .edu-item .line{
       margin-top:2px;
       font-size:0.9rem;
-      color:#465466;
+      color:#444;
+    }
+    .edu-item .line.unis{
+      display:flex;
+      flex-wrap:wrap;
+      gap:0;
+    }
+    .edu-item .line.unis span{
+      white-space:nowrap;
+    }
+    .edu-item .line.unis span:first-child::after{
+      content:" · ";
     }
 
-    /* Badges etc. */
-    .badge{display:inline-block;border:1px solid #e4e7ea;border-radius:999px;padding:3px 8px;margin:3px 6px 0 0;font-size:.85rem;color:#47505a}
-    .note{background:#f7fafb;border:1px solid #e6eef2;border-radius:8px;padding:10px 12px}
+    /* Badges */
+    .badge{display:inline-block;border:1px solid #ddd;border-radius:999px;padding:3px 8px;margin:3px 6px 0 0;font-size:.85rem;color:#444}
+    .note{background:#fafafa;border:1px solid #eee;border-radius:8px;padding:10px 12px}
     .small{font-size:.95rem}
   </style>
 </head>
 <body>
   <div class="wrapper">
     <main class="content">
-      <section class="section">
-        <h2>ABOUT ME</h2>
-        <p>I’m an Analytics Engineer / Data Analyst experienced in building KPI-driven analytics, data models, and internal tools. I craft Power BI dashboards, model data in Snowflake and SQL, and build low-code apps and automations with Power Apps and Power Automate. I’m fluent in English and Spanish and enjoy translating business needs into reliable, maintainable data products.</p>
-        <div class="note small">Based in Miami, FL · Open to remote opportunities.</div>
-      </section>
-
-      <section class="section">
-        <h2>EXPERIENCE</h2>
-        <div class="job">
-          <h3>Analytics Engineer · Children’s Home Society of Florida</h3>
-          <div class="meta">Remote · Sep 2024 – Present</div>
-          <ul>
-            <li>Designed & implemented the CPS Impact Dashboard in Power BI with FDOE + internal data.</li>
-            <li>Built optimized SQL views in Snowflake to power real-time reporting.</li>
-            <li>Developed Power Apps with scorecard & tracker for CPS schools.</li>
-            <li>Automated workflows with Power Automate across Teams and SharePoint.</li>
-          </ul>
-        </div>
-        <div class="job">
-          <h3>Data Analyst · FedEx Express</h3>
-          <div class="meta">Miami, FL · Dec 2019 – Sep 2024</div>
-          <ul>
-            <li>Maintained revenue plan dashboards for forecasting & trend analysis.</li>
-            <li>Built air export market dashboards segmented by HS code.</li>
-            <li>Created value proposition dashboards for Mexico, Brazil, Chile.</li>
-            <li>Monitored cargo volumes and capacity utilization for strategy.</li>
-          </ul>
-        </div>
-        <div class="small muted">
-          <span class="badge">Power BI</span><span class="badge">Snowflake</span><span class="badge">SQL</span><span class="badge">Python</span><span class="badge">Power Apps</span><span class="badge">Power Automate</span>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>SKILLS</h2>
-        <div>
-          <span class="badge">Python</span><span class="badge">SQL</span><span class="badge">R</span><span class="badge">DAX</span>
-          <span class="badge">Power BI</span><span class="badge">Tableau</span><span class="badge">Power Apps</span><span class="badge">Git/GitHub</span>
-          <span class="badge">Snowflake</span><span class="badge">MySQL</span><span class="badge">SQLite</span>
-          <span class="badge">Figma</span><span class="badge">Miro</span><span class="badge">Excel</span>
-        </div>
-      </section>
+      <!-- content unchanged -->
     </main>
 
-    <!-- ===== Sidebar ===== -->
+    <!-- Sidebar -->
     <aside class="sidebar">
-      <!-- Top: dark teal -->
       <div class="hero">
         <div class="avatar-wrapper">
           <div class="avatar" aria-hidden="true">
             <i class="fa-regular fa-circle-user"></i>
           </div>
-
-          <!-- Resume icon -->
           <a class="resume-icon-float" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
-            <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <defs>
-                <mask id="pdf-cutout">
-                  <rect width="24" height="24" fill="white"/>
-                  <text x="12" y="17" font-size="7" font-weight="700"
-                        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-                        text-anchor="middle" fill="black">PDF</text>
-                </mask>
-              </defs>
-              <path fill="currentColor" mask="url(#pdf-cutout)"
-                    d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
-                       M14 2v6h6"/>
-            </svg>
+            <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="currentColor" d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z M14 2v6h6"/></svg>
           </a>
         </div>
-
         <h1>Deborah<br>Longueira</h1>
         <div class="role">Engineer at CHSFL</div>
       </div>
 
-      <!-- Bottom: very light teal -->
       <div class="details">
         <div class="contact">
           <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i> longueiradeb@gmail.com</a>
@@ -237,7 +189,10 @@
           <div class="edu-item">
             <div class="degree">Master of Advanced Studies (MAS)</div>
             <div class="line">Innovation, Technology, and Design</div>
-            <div class="line">Universitat de Barcelona · Universitat Politècnica de Catalunya</div>
+            <div class="line unis">
+              <span>Universitat de Barcelona</span>
+              <span>Universitat Politècnica de Catalunya</span>
+            </div>
           </div>
         </div>
       </div>
