@@ -11,15 +11,12 @@
   <style>
     :root{
       --teal:#2F7D8A;
-      --teal-dark:#276a74;
       --bg:#f3f5f6;
       --paper:#ffffff;
       --text:#103042;
       --muted:#5c6b76;
       --link:#1b6f7d;
       --heading:#123245;
-      --chip:#eef4f6;
-      --chip-border:#dbe5e9;
     }
 
     *{box-sizing:border-box}
@@ -35,7 +32,7 @@
       display:grid;
       grid-template-columns: 1.15fr 360px;
       gap:28px;
-      align-items:stretch; 
+      align-items:stretch;
     }
     @media (max-width: 980px){
       .wrap{grid-template-columns:1fr}
@@ -59,7 +56,6 @@
       width:34px;height:34px;border-radius:50%;
       display:grid;place-items:center;
       background:#e6f0f2;color:var(--teal);
-      box-shadow:inset 0 0 0 1px rgba(31,89,98,.08);
       font-size:1rem;
     }
     p{margin:0 0 12px}
@@ -88,16 +84,15 @@
       text-align:center;
     }
     .avatar{
-      width:84px;height:84px;border-radius:50%;
+      width:120px;height:120px;border-radius:50%;
       display:grid;place-items:center;
       background:rgba(255,255,255,.18);
       border:3px solid rgba(255,255,255,.45);
       margin:0 auto 12px;
     }
-    .avatar i{font-size:42px;color:#fff}
+    .avatar i{font-size:60px;color:#fff}
     .name{
-      font-size:2.1rem;
-      line-height:1.2;
+      font-size:1.4rem;
       font-weight:800;
       text-align:center;
     }
@@ -111,6 +106,18 @@
     .list a:hover{opacity:.92}
     .list i{width:22px;text-align:center}
 
+    .resume-container{display:flex;justify-content:center;margin:12px 0 20px}
+    .resume{
+      padding:10px 14px;
+      border-radius:10px;
+      background:rgba(0,0,0,.12);
+      font-weight:600;
+      text-align:center;
+      color:#fff;
+      text-decoration:none;
+    }
+    .resume:hover{background:rgba(0,0,0,.18)}
+
     .side-block{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
     .side-block h4{
       margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;opacity:.95
@@ -121,19 +128,6 @@
 
     .sidebar a{color:#e9fbff}
     .sidebar a:hover{text-decoration:underline}
-
-    .resume-container{display:flex;justify-content:center;margin-top:10px;margin-bottom:20px}
-    .resume{
-      padding:12px 14px;
-      border-radius:10px;
-      background:rgba(0,0,0,.12);
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:600;
-      text-align:center;
-    }
-    .resume i{opacity:.95}
   </style>
 </head>
 <body>
@@ -160,11 +154,11 @@
           <h3>Analytics Engineer · Children’s Home Society of Florida</h3>
           <div class="meta">Remote · Orlando, FL · Sep 2024 – Present</div>
           <ul>
-            <li>Designed and implemented the CPS Impact Dashboard using Microsoft Power BI, integrating Florida Department of Education and internal data to track KPIs across health and education programs, providing insights into program effectiveness and outcome trends for leadership and stakeholders.</li>
-            <li>Created and optimized SQL views in Snowflake to streamline data extraction processes and enable real-time, KPI-driven reporting within Power BI, improving decision-making efficiency.</li>
-            <li>Developed, launched, and maintained a custom application for Community Partnership Schools using Microsoft Power Apps, incorporating a performance scorecard and weekly input tracker to standardize data entry and enable continuous monitoring of school-level KPIs.</li>
-            <li>Leveraged Python for data cleaning and transformation, enabling the delivery of structured, actionable datasets that surfaced operational trends and supported evidence-based planning.</li>
-            <li>Automated user access and workflow processes with Power Automate, improving operational efficiency across Microsoft Teams and SharePoint environments.</li>
+            <li>Designed and implemented the CPS Impact Dashboard using Microsoft Power BI, integrating Florida Department of Education and internal data...</li>
+            <li>Created and optimized SQL views in Snowflake to streamline data extraction processes...</li>
+            <li>Developed, launched, and maintained a custom application for Community Partnership Schools...</li>
+            <li>Leveraged Python for data cleaning and transformation...</li>
+            <li>Automated user access and workflow processes with Power Automate...</li>
           </ul>
         </div>
 
@@ -172,10 +166,10 @@
           <h3>Data Analyst · FedEx Express</h3>
           <div class="meta">Hybrid · Miami, FL · Dec 2019 – Sep 2024</div>
           <ul>
-            <li>Developed, implemented, and maintained a revenue plan dashboard used for revenue forecasting and comparative analysis of revenue and yield, examining historical trends across countries, products, and months, enhancing strategic planning capabilities.</li>
-            <li>Led the development of the air exports market dashboard, facilitating detailed comparisons of Latin American countries' exports to the U.S. and worldwide, classifying data by HS codes to identify key growth opportunities.</li>
-            <li>Created value proposition dashboards for Mexico, Brazil, and Chile to analyze and compare pricing, transit times, and cut-off times, aiding product development and continuous improvement initiatives.</li>
-            <li>Designed dashboards to monitor air cargo volumes and capacity utilization, providing insights that informed strategic decision-making and optimized resource allocation.</li>
+            <li>Developed, implemented, and maintained a revenue plan dashboard used for revenue forecasting...</li>
+            <li>Led the development of the air exports market dashboard...</li>
+            <li>Created value proposition dashboards for Mexico, Brazil, and Chile...</li>
+            <li>Designed dashboards to monitor air cargo volumes and capacity utilization...</li>
           </ul>
         </div>
       </section>
@@ -196,9 +190,10 @@
             <a href="https://github.com/deblongueira" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>deblongueira</a>
           </div>
 
+          <!-- Resume PDF placed right below GitHub -->
           <div class="resume-container">
             <a class="resume" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener">
-              <i class="fa-regular fa-file-pdf"></i> Resume PDF
+              Resume PDF
             </a>
           </div>
 
