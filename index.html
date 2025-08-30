@@ -70,11 +70,10 @@
     .job ul{margin:8px 0 10px 18px}
     .job li{margin:6px 0}
 
-    /* Skills chips under each job */
+    /* Skills chips under each job - grid layout */
     .chips{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap:8px;
       margin-top:12px;
     }
@@ -85,6 +84,7 @@
       padding:4px 10px;
       font-size:.85rem;
       color:#3a4a54;
+      text-align:center;
     }
 
     /* Sidebar */
@@ -161,7 +161,7 @@
       <section class="section" id="about">
         <h2 class="section-title"><span class="icon"><i class="fa-regular fa-user"></i></span>About Me</h2>
         <p>
-          Analyst/Engineer with expertise in Microsoft Power BI, SQL, and Snowflake, focused on advancing data-driven decision making across health, education, and business contexts. I hold a Bachelor of Science in Computer Science with a minor in Cognitive Science from the
+          I am an analyst/engineer with expertise in Microsoft Power BI, SQL, and Snowflake, focused on advancing data-driven decision making across health, education, and business contexts. I hold a Bachelor of Science in Computer Science with a minor in Cognitive Science from the
           <a href="https://www.eng.ufl.edu/" target="_blank" rel="noopener">University of Florida</a>, and a Master of Advanced Studies in Innovation, Technology, and Design from the
           <a href="https://www.upc.edu/en" target="_blank" rel="noopener">Universitat Politècnica de Catalunya</a> and the
           <a href="https://web.ub.edu/en" target="_blank" rel="noopener">Universitat de Barcelona</a>.
