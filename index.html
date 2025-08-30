@@ -70,14 +70,14 @@
     .job ul{margin:8px 0 10px 18px}
     .job li{margin:6px 0}
 
-    /* Skills chips under each job - centered flex layout */
+    /* Skills chips under each job - smaller for better wrapping */
     .chips{
       display:flex;
       flex-wrap:wrap;
       justify-content:center;
-      gap:10px 16px; /* better horizontal/vertical spacing */
+      gap:8px 14px;
       margin-top:14px;
-      max-width:90%; /* keeps rows balanced */
+      max-width:90%;
       margin-left:auto;
       margin-right:auto;
     }
@@ -85,8 +85,8 @@
       background:var(--chip);
       border:1px solid var(--chip-border);
       border-radius:999px;
-      padding:5px 12px;
-      font-size:.85rem;
+      padding:3px 10px;   /* smaller padding */
+      font-size:.8rem;    /* smaller font */
       color:#3a4a54;
     }
 
