@@ -118,12 +118,24 @@
     .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(47,125,138,.20)}
     .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#1f2937}
 
-    /* Education (degree darker, lines lighter) */
-    .edu-item{margin:0 0 16px}
-    .edu-item .degree{font-weight:700;font-size:0.96rem;color:#0f172a;}
-    .edu-item .line{margin-top:2px;font-size:0.9rem;color:#465466;}
+    /* Education highlight */
+    .edu-item{
+      margin:0 0 20px;
+      padding-left:10px;
+      border-left:3px solid var(--teal-dark);
+    }
+    .edu-item .degree{
+      font-weight:700;
+      font-size:1rem;
+      color:var(--teal-dark);
+    }
+    .edu-item .line{
+      margin-top:2px;
+      font-size:0.9rem;
+      color:#465466;
+    }
 
-    /* Badges etc. (unchanged) */
+    /* Badges etc. */
     .badge{display:inline-block;border:1px solid #e4e7ea;border-radius:999px;padding:3px 8px;margin:3px 6px 0 0;font-size:.85rem;color:#47505a}
     .note{background:#f7fafb;border:1px solid #e6eef2;border-radius:8px;padding:10px 12px}
     .small{font-size:.95rem}
@@ -225,7 +237,7 @@
           <div class="edu-item">
             <div class="degree">Master of Advanced Studies (MAS)</div>
             <div class="line">Innovation, Technology, and Design</div>
-            <div class="line">Polytechnic University of Catalonia · University of Barcelona</div>
+            <div class="line">Universitat de Barcelona · Universitat Politècnica de Catalunya</div>
           </div>
         </div>
       </div>
