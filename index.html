@@ -1,163 +1,172 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Deborah Longueira</title>
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    * { box-sizing: border-box; }
+    /* ====== THEME (match reference layout: teal panel, clean left column) ====== */
     :root{
-      --teal-dark:#2F7D8A;
-      --teal-accent:#79C3CF;
-      --teal-verylight:#E6F4F6;
-
-      --bg:#f5f6f7;
-      --text:#111827;
-      --muted:#4B5563;
+      --teal:#2F7D8A;           /* main teal (sidebar) */
+      --teal-dark:#276a74;      /* darker teal for divider */
+      --bg:#f3f5f6;             /* app background */
+      --paper:#ffffff;          /* content card */
+      --text:#103042;           /* primary text (inky blue-gray) */
+      --muted:#5c6b76;          /* muted copy */
+      --link:#1b6f7d;           /* link teal */
+      --heading:#123245;        /* section headings */
+      --chip:#eef4f6;           /* skill chips bg in content */
+      --chip-border:#dbe5e9;
     }
 
-    html,body{
-      margin:0;padding:0;background:var(--bg);color:var(--text);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      min-height:100%;
-    }
-    a{color:var(--teal-dark);text-decoration:none}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+    a{color:var(--link);text-decoration:none}
     a:hover{text-decoration:underline}
 
-    .wrapper{
-      display:grid;
-      grid-template-columns:1fr 340px;
-      gap:32px;
+    /* ====== LAYOUT ====== */
+    .wrap{
       max-width:1200px;
       margin:36px auto;
-      padding:0 20px;
-      align-items:stretch;
+      padding:0 22px;
+      display:grid;
+      grid-template-columns: 1.15fr 360px; /* left content, right sidebar */
+      gap:28px;
+      align-items:start;
     }
-    @media (max-width: 900px){
-      .wrapper{grid-template-columns:1fr}
+    @media (max-width: 980px){
+      .wrap{grid-template-columns:1fr}
       .sidebar{order:-1}
     }
 
-    .content{
-      background:#fff;border-radius:12px;padding:32px;
-      box-shadow:0 2px 8px rgba(0,0,0,.06)
+    /* ====== LEFT: CONTENT CARD ====== */
+    .card{
+      background:var(--paper);
+      border-radius:12px;
+      box-shadow:0 3px 12px rgba(16,48,66,.06);
+      padding:28px 28px 6px;
     }
-    .section{margin-bottom:36px}
-    .section h2{
-      font-size:1.1rem;letter-spacing:.04em;
-      text-transform:uppercase;color:#4a5560;margin:0 0 12px
+    .section{margin:0 0 30px}
+    .section-title{
+      display:flex;align-items:center;gap:10px;
+      font-weight:800;letter-spacing:.02em;text-transform:uppercase;
+      color:var(--heading);
+      margin:0 0 10px;font-size:1.05rem;
     }
-
-    .sidebar{
-      border-radius:12px;overflow:hidden;
-      box-shadow:0 2px 8px rgba(0,0,0,.06);
-      display:flex;flex-direction:column;
-    }
-    .sidebar .hero{
-      background:var(--teal-dark);
-      color:#fff;
-      padding:32px 28px 22px;
-      text-align:center;position:relative;
-    }
-    .avatar-wrapper{position:relative;width:120px;height:120px;margin:0 auto 16px;}
-    .avatar{
-      width:100%;height:100%;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      border:3px solid rgba(255,255,255,.5);
-      background:rgba(255,255,255,.15);
-    }
-    .avatar i{font-size:64px;color:#fff;}
-    .sidebar .hero h1{font-size:2.2rem;line-height:1.1;margin:0 0 10px;}
-
-    .resume-icon-float{
-      position:absolute;bottom:-4px;right:-4px;
-      background:var(--teal-accent);
-      border:2px solid rgba(255,255,255,.8);
-      border-radius:50%;width:38px;height:38px;
-      display:flex;align-items:center;justify-content:center;
-      box-shadow:0 2px 6px rgba(0,0,0,.25);
-      transition:transform .06s ease, background .15s ease;
-      z-index:1;
-    }
-    .resume-icon-float:hover{background:#90D3DD;box-shadow:0 4px 10px rgba(0,0,0,.25);}
-    .resume-icon-float:active{transform:translateY(1px);}
-    .pdf-icon{width:22px;height:22px;color:#fff;display:block;}
-
-    .sidebar .details{
-      background:var(--teal-verylight);
-      color:var(--text);
-      padding:24px 28px 26px;
-      font-size:0.9rem;line-height:1.55;
-      flex-grow:1;
-      border-top:1px solid rgba(47,125,138,.20);
-    }
-
-    .sidebar .contact{margin-top:6px;display:grid;gap:8px;}
-    .sidebar .contact a{
-      display:flex;align-items:center;gap:12px;color:var(--text);
-    }
-    .sidebar .contact a:hover{opacity:.9;}
-    .sidebar .contact i{
-      width:24px;text-align:center;font-size:1.15rem;
-      color:var(--teal-dark);
-    }
-
-    .sidebar .block{margin-top:22px;padding-top:16px;border-top:1px solid rgba(47,125,138,.20)}
-    .sidebar .block h3{margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:#1f2937}
-
-    .edu-item{
-      margin:0 0 20px;
-      padding-left:10px;
-      border-left:3px solid var(--teal-dark);
-    }
-    .edu-item .degree{
-      font-weight:700;
+    .section-title .icon{
+      width:34px;height:34px;border-radius:50%;
+      display:grid;place-items:center;
+      background:#e6f0f2;color:var(--teal);
+      box-shadow:inset 0 0 0 1px rgba(31,89,98,.08);
       font-size:1rem;
-      color:var(--teal-dark);
     }
-    .edu-item .line{
-      margin-top:2px;
-      font-size:0.9rem;
-      color:#465466;
-    }
-    .edu-item .line.unis{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:baseline;
-      gap:0;
-    }
-    .edu-item .line.unis span{
-      white-space:nowrap;
+    p{margin:0 0 12px}
+    .note{background:#f5fafb;border:1px solid #e4eff2;border-radius:10px;padding:10px 12px;color:var(--muted);font-size:.95rem}
+
+    /* EXPERIENCE */
+    .job{margin:18px 0 22px;padding-bottom:14px;border-bottom:1px solid #eef2f4}
+    .job:last-child{border-bottom:none;padding-bottom:0}
+    .job h3{margin:0 0 4px;font-size:1.05rem}
+    .meta{color:var(--muted);font-size:.95rem;margin-bottom:8px}
+    .job ul{margin:8px 0 10px 18px}
+    .job li{margin:6px 0}
+
+    /* small skill chips under jobs */
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .chip{
+      background:var(--chip);border:1px solid var(--chip-border);
+      border-radius:999px;padding:4px 10px;font-size:.85rem;color:#3a4a54
     }
 
-    .badge{display:inline-block;border:1px solid #e4e7ea;border-radius:999px;padding:3px 8px;margin:3px 6px 0 0;font-size:.85rem;color:#47505a}
-    .note{background:#f7fafb;border:1px solid #e6eef2;border-radius:8px;padding:10px 12px}
-    .small{font-size:.95rem}
+    /* ====== RIGHT: TALL TEAL SIDEBAR ====== */
+    .sidebar{
+      background:var(--teal);
+      color:#fff;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(12,55,65,.15);
+      overflow:hidden;
+    }
+    .side-head{
+      padding:26px 24px 18px;
+      border-bottom:1px solid rgba(255,255,255,.12)
+    }
+    .avatar{
+      width:84px;height:84px;border-radius:50%;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.18);
+      border:3px solid rgba(255,255,255,.45);
+      margin-bottom:12px;
+    }
+    .avatar i{font-size:42px;color:#fff}
+    .name{font-size:2.1rem;line-height:1.05;margin:2px 0 0;font-weight:800}
+    /* no role line (per your preference) */
+
+    .side-body{padding:18px 22px 22px}
+
+    /* contact list */
+    .list{display:grid;gap:10px;margin:4px 0 18px}
+    .list a{
+      display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none
+    }
+    .list a:hover{opacity:.92}
+    .list i{width:22px;text-align:center}
+
+    /* sidebar block titles */
+    .side-block{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12)}
+    .side-block h4{
+      margin:0 0 10px;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;opacity:.95
+    }
+
+    /* Education items in sidebar */
+    .edu-item{margin:0 0 14px}
+    .degree{font-weight:800}
+    .line{opacity:.95}
+
+    /* make links visible on teal */
+    .sidebar a{color:#e9fbff}
+    .sidebar a:hover{text-decoration:underline}
+
+    /* Resume button (teal-dark strip) */
+    .resume{
+      margin-top:14px;padding:12px 14px;border-radius:10px;
+      background:rgba(0,0,0,.12);display:flex;align-items:center;gap:10px
+    }
+    .resume i{opacity:.95}
+
+    /* ===== Accessibility tweaks ===== */
+    @media (prefers-color-scheme: dark){
+      /* keep same theme; this layout is brand-like */
+    }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <main class="content">
-      <section class="section">
-        <h2>ABOUT ME</h2>
+  <div class="wrap">
+    <!-- LEFT COLUMN -->
+    <main class="card">
+      <!-- ABOUT ME -->
+      <section class="section" id="about">
+        <h2 class="section-title"><span class="icon"><i class="fa-regular fa-user"></i></span>About Me</h2>
         <p>
-          Analyst / Engineer with expertise in Microsoft Power BI, Microsoft SQL, and Snowflake, focused on advancing data-driven decision making across health, education, and business contexts. I hold a Bachelor of Science in Computer Science with a minor in Cognitive Science from the 
-          <a href="https://www.eng.ufl.edu/" target="_blank" rel="noopener">University of Florida Herbert Wertheim College of Engineering</a>, and a Master of Advanced Studies in Innovation, Technology, and Design from the 
-          <a href="https://www.upc.edu/en" target="_blank" rel="noopener">Universitat Politècnica de Catalunya</a> and the 
+          Analyst / Engineer with expertise in Microsoft Power BI, Microsoft SQL, and Snowflake, focused on advancing data-driven decision making across health, education, and business contexts. I hold a Bachelor of Science in Computer Science with a minor in Cognitive Science from the
+          <a href="https://www.eng.ufl.edu/" target="_blank" rel="noopener">University of Florida Herbert Wertheim College of Engineering</a>, and a Master of Advanced Studies in Innovation, Technology, and Design from the
+          <a href="https://www.upc.edu/en" target="_blank" rel="noopener">Universitat Politècnica de Catalunya</a> and the
           <a href="https://web.ub.edu/en" target="_blank" rel="noopener">Universitat de Barcelona</a>.
         </p>
-        <div class="note small">Based in Miami, FL · Open to remote opportunities.</div>
+        <div class="note">Based in Miami, FL · Open to remote opportunities.</div>
       </section>
 
-      <section class="section">
-        <h2>EXPERIENCE</h2>
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <h2 class="section-title"><span class="icon"><i class="fa-solid fa-briefcase"></i></span>Experience</h2>
+
         <div class="job">
           <h3>Analytics Engineer · Children’s Home Society of Florida</h3>
-          <div class="meta">Hybrid / Remote · Orlando, FL · Sep 2024 – Present</div>
+          <div class="meta">Remote · Orlando, FL · Sep 2024 – Present</div>
           <ul>
             <li>Designed and implemented the CPS Impact Dashboard using Microsoft Power BI, integrating Florida Department of Education and internal data to track KPIs across health and education programs, providing insights into program effectiveness and outcome trends for leadership and stakeholders.</li>
             <li>Created and optimized SQL views in Snowflake to streamline data extraction processes and enable real-time, KPI-driven reporting within Power BI, improving decision-making efficiency.</li>
@@ -165,10 +174,20 @@
             <li>Leveraged Python for data cleaning and transformation, enabling the delivery of structured, actionable datasets that surfaced operational trends and supported evidence-based planning.</li>
             <li>Automated user access and workflow processes with Power Automate, improving operational efficiency across Microsoft Teams and SharePoint environments.</li>
           </ul>
-          <div class="small muted">
-            <span class="badge">Power BI</span><span class="badge">Snowflake</span><span class="badge">Microsoft SQL</span><span class="badge">Python</span><span class="badge">Power Apps</span><span class="badge">Power Automate</span><span class="badge">Jira</span>
+          <div class="chips">
+            <span class="chip">Microsoft Power BI</span>
+            <span class="chip">Snowflake</span>
+            <span class="chip">Microsoft SQL</span>
+            <span class="chip">Microsoft Power Apps</span>
+            <span class="chip">Microsoft Power Automate</span>
+            <span class="chip">Python</span>
+            <span class="chip">M</span>
+            <span class="chip">Microsoft Power Query</span>
+            <span class="chip">DAX</span>
+            <span class="chip">Jira</span>
           </div>
         </div>
+
         <div class="job">
           <h3>Data Analyst · FedEx Express</h3>
           <div class="meta">Hybrid · Miami, FL · Dec 2019 – Sep 2024</div>
@@ -178,71 +197,59 @@
             <li>Created value proposition dashboards for Mexico, Brazil, and Chile to analyze and compare pricing, transit times, and cut-off times, aiding product development and continuous improvement initiatives.</li>
             <li>Designed dashboards to monitor air cargo volumes and capacity utilization, providing insights that informed strategic decision-making and optimized resource allocation.</li>
           </ul>
-          <div class="small muted">
-            <span class="badge">Power BI</span><span class="badge">SQL</span><span class="badge">Tableau</span><span class="badge">Python</span><span class="badge">Excel</span><span class="badge">R</span>
+          <div class="chips">
+            <span class="chip">Microsoft Power BI</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">R</span>
+            <span class="chip">Python</span>
+            <span class="chip">M</span>
+            <span class="chip">Microsoft Power Query</span>
+            <span class="chip">DAX</span>
           </div>
         </div>
       </section>
 
-      <section class="section">
-        <h2>SKILLS</h2>
-        <div>
-          <span class="badge">Python</span><span class="badge">SQL</span><span class="badge">R</span><span class="badge">DAX</span>
-          <span class="badge">Power BI</span><span class="badge">Tableau</span><span class="badge">Power Apps</span><span class="badge">Git/GitHub</span>
-          <span class="badge">Snowflake</span><span class="badge">MySQL</span><span class="badge">SQLite</span>
-          <span class="badge">Figma</span><span class="badge">Miro</span><span class="badge">Excel</span>
+      <!-- SKILLS (global list) -->
+      <section class="section" id="skills">
+        <h2 class="section-title"><span class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>Skills</h2>
+        <div class="chips" aria-label="skills">
+          <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">DAX</span>
+          <span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Power Apps</span><span class="chip">Git/GitHub</span>
+          <span class="chip">Snowflake</span><span class="chip">MySQL</span><span class="chip">SQLite</span>
+          <span class="chip">Figma</span><span class="chip">Miro</span><span class="chip">Excel</span><span class="chip">Jira</span>
         </div>
       </section>
     </main>
 
+    <!-- RIGHT COLUMN: TEAL SIDEBAR -->
     <aside class="sidebar">
-      <div class="hero">
-        <div class="avatar-wrapper">
-          <div class="avatar" aria-hidden="true">
-            <i class="fa-regular fa-circle-user"></i>
-          </div>
-          <a class="resume-icon-float" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener" aria-label="Resume PDF">
-            <svg class="pdf-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <defs>
-                <mask id="pdf-cutout">
-                  <rect width="24" height="24" fill="white"/>
-                  <text x="12" y="17" font-size="7" font-weight="700"
-                        font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-                        text-anchor="middle" fill="black">PDF</text>
-                </mask>
-              </defs>
-              <path fill="currentColor" mask="url(#pdf-cutout)"
-                    d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z
-                       M14 2v6h6"/>
-            </svg>
-          </a>
-        </div>
-        <h1>Deborah<br>Longueira</h1>
+      <div class="side-head">
+        <div class="avatar"><i class="fa-regular fa-circle-user"></i></div>
+        <div class="name">Deborah<br/>Longueira</div>
       </div>
 
-      <div class="details">
-        <div class="contact">
-          <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i> longueiradeb@gmail.com</a>
-          <a href="https://www.linkedin.com/in/deblongueira"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/deblongueira</a>
-          <a href="https://github.com/deblongueira"><i class="fa-brands fa-github"></i> github.com/deblongueira</a>
+      <div class="side-body">
+        <div class="list">
+          <a href="mailto:longueiradeb@gmail.com"><i class="fa-solid fa-envelope"></i>longueiradeb@gmail.com</a>
+          <a href="https://www.linkedin.com/in/deblongueira" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>deblongueira</a>
+          <a href="https://github.com/deblongueira" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>deblongueira</a>
         </div>
 
-        <div class="block">
-          <h3>EDUCATION</h3>
+        <a class="resume" href="DeborahLongueiraResume.pdf" target="_blank" rel="noopener">
+          <i class="fa-regular fa-file-pdf"></i> CV PDF
+        </a>
+
+        <div class="side-block">
+          <h4>Education</h4>
           <div class="edu-item">
             <div class="degree">Bachelor of Science (BS)</div>
             <div class="line">Computer Science & Cognitive Science</div>
-            <div class="line">
-              <a href="https://www.eng.ufl.edu/" target="_blank" rel="noopener">University of Florida Herbert Wertheim College of Engineering</a>
-            </div>
+            <div class="line"><a href="https://www.eng.ufl.edu/" target="_blank" rel="noopener">University of Florida Herbert Wertheim College of Engineering</a></div>
           </div>
           <div class="edu-item">
             <div class="degree">Master of Advanced Studies (MAS)</div>
             <div class="line">Innovation, Technology, and Design</div>
-            <div class="line unis">
-              <span><a href="https://www.upc.edu/en" target="_blank" rel="noopener">Universitat Politècnica de Catalunya</a></span> &nbsp; 
-              <span><a href="https://web.ub.edu/en" target="_blank" rel="noopener">Universitat de Barcelona</a></span>
-            </div>
+            <div class="line"><a href="https://www.upc.edu/en" target="_blank" rel="noopener">Universitat Politècnica de Catalunya</a> · <a href="https://web.ub.edu/en" target="_blank" rel="noopener">Universitat de Barcelona</a></div>
           </div>
         </div>
       </div>
